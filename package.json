@@ -1,0 +1,26 @@
+{
+  "name": "projectneighborhoodmap",
+  "version": "1.0.0",
+  "description": "App project utilizing google maps api",
+  "main": "index.js",
+  "dependencies": {
+    "gulp-sass": "^2.3.2"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^3.1.1"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/thegibster/ProjectNeighborhoodMap.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/thegibster/ProjectNeighborhoodMap/issues"
+  },
+  "homepage": "https://github.com/thegibster/ProjectNeighborhoodMap#readme"
+}
