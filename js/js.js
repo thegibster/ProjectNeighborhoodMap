@@ -2,7 +2,8 @@
 
       // Create a new blank array for all the listing markers.
       var markers = [];
-
+      var locations;
+      var locationsArrayNames =["Park Ave Penthouse", "Chelsea Loft", "Union Square Open Floor Plan", "East Village Hip Studio", "TriBeCa Artsy Bachelor Pad", "Chinatown Homey Space"];
       function initMap() {
           // Constructor creates a new map - only center and zoom are required.
           map = new google.maps.Map(document.getElementById('map'), {
@@ -16,7 +17,7 @@
 
           // These are the real estate listings that will be shown to the user.
           // Normally we'd have these in a database instead.
-          var locations = [{
+           locations = [{
               title: 'Park Ave Penthouse',
               location: {
                   lat: 40.7713024,
@@ -53,6 +54,8 @@
                   lng: -73.9961237
               }
           }];
+
+          //locationsArrayNames = locations.map(function(obj){return obj.title});
 
           var largeInfowindow = new google.maps.InfoWindow();
 
