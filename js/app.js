@@ -8,16 +8,35 @@ var NeighborhoodList = function () {
         var filter = this.query().toLowerCase();
 
         if (!filter) {
+            pleaseWork = this.allItems();
             return this.allItems();
         } else {
+            // locations = ko.utils.arrayFilter(this.allItems(), function (item) {
+            //     return item.toLowerCase().indexOf(filter) !== -1;
+            // });
+            giggle();
+            pleaseWork= ko.utils.arrayFilter(this.allItems(), function (item) {
+                return item.toLowerCase().indexOf(filter) !== -1;
+            });
             return ko.utils.arrayFilter(this.allItems(), function (item) {
                 return item.toLowerCase().indexOf(filter) !== -1;
             });
         }
+        // showListings() ;
+        // // Using markers[indexOfMarker].setMap(null); will remove the marker not in the to show from filter
+        // for(var y in this.search){
+        //   // if(locationsArrayNames.indexOf(markers[y].title) <= -1 ){
+        //   // markers[y].setMap(null);
+        //   // console.log(y);
+        //   // }
+        //   console.log(y + "mhm");
+        // }
+        // runMap();
+         giggle();
     },this);
+}
 
-
-
+function giggle(){console.log("hehe",pleaseWork);
 
 
 
@@ -41,4 +60,4 @@ var NeighborhoodList = function () {
 };
 
 ko.applyBindings(new NeighborhoodList());
-//NeighborhoodList.query.subscribe(NeighborhoodList.search);
+

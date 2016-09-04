@@ -3,6 +3,7 @@
       // Create a new blank array for all the listing markers.
       var markers = [];
       var locations;
+      var pleaseWork;
       var locationsArrayNames =["Park Ave Penthouse", "Chelsea Loft", "Union Square Open Floor Plan", "East Village Hip Studio", "TriBeCa Artsy Bachelor Pad", "Chinatown Homey Space"];
       function initMap() {
           // Constructor creates a new map - only center and zoom are required.
@@ -60,6 +61,7 @@
           var largeInfowindow = new google.maps.InfoWindow();
 
           // The following group uses the location array to create an array of markers on initialize.
+          (function runMap(){
           for (var i = 0; i < locations.length; i++) {
               // Get the position from the location array.
               var position = locations[i].location;
@@ -78,6 +80,7 @@
                   populateInfoWindow(this, largeInfowindow);
               });
           }
+        })();
           document.getElementById('show-listings').addEventListener('click', showListings);
           document.getElementById('hide-listings').addEventListener('click', hideListings);
       }

@@ -16,18 +16,20 @@
 <body>
 
     <div class="container">
+    <div><p>Your Neighborhood:</p></div>
+
         <form >
-            <input type="text" name="search" placeholder="Search..">
+            <input type="text" name="search" placeholder="Search.." data-bind="value: query, valueUpdate: 'keyup'" autocomplete="off">
         </form>
         <div class="options-box">
             <div>
                 <input id="show-listings" type="button" value="Show Listings">
                 <input id="hide-listings" type="button" value="Hide Listings">
             </div>
-            <div><input placeholder="Search…" type="search" data-bind="value: query, valueUpdate: 'keyup'" autocomplete="off"></div>
+
             <div>
 
-                <p>Your Neighborhood:</p>
+
 
                 <select multiple="multiple" height="7" data-bind="options:search, selectedOptions:selectedItems"> </select>
             </div>
