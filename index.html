@@ -8,21 +8,23 @@
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/main.css">
+    <script src="https://use.fontawesome.com/498aa34772.js"></script>
 </head>
 
 <body>
 
     <div class="container">
-    <form>
-    <input type="text" name="search" placeholder="Search..">
-    </form>
+        <form >
+            <input type="text" name="search" placeholder="Search..">
+        </form>
         <div class="options-box">
-
-
-
             <div>
                 <input id="show-listings" type="button" value="Show Listings">
                 <input id="hide-listings" type="button" value="Hide Listings">
+            </div>
+            <div>
+                <p>Your values:</p>
+                <select multiple="multiple" height="5" data-bind="options:allItems, selectedOptions:selectedItems"> </select>
             </div>
         </div>
         <div id="map"></div>
