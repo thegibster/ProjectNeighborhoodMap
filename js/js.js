@@ -61,7 +61,7 @@
           var largeInfowindow = new google.maps.InfoWindow();
 
           // The following group uses the location array to create an array of markers on initialize.
-          (function runMap(){
+          function runMap(){
           for (var i = 0; i < locations.length; i++) {
               // Get the position from the location array.
               var position = locations[i].location;
@@ -80,7 +80,7 @@
                   populateInfoWindow(this, largeInfowindow);
               });
           }
-        })();
+        };
           document.getElementById('show-listings').addEventListener('click', showListings);
           document.getElementById('hide-listings').addEventListener('click', hideListings);
       }
