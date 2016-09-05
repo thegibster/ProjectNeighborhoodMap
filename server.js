@@ -18,7 +18,7 @@ app.use(express.static(__dirname));
 
 var urlTerm = "https://gist.githubusercontent.com/erichurst/7882666/raw/5bdc46db47d9515269ab12ed6fb2850377fd869e/US%2520Zip%2520Codes%2520from%25202013%2520Government%2520Data";
 var YOUR_API_KEY ="AIzaSyCbt1MzT95dG4Tg9C-wF8BPH48Lyio3gok&v=3&callback=initMap";
-var revLat ="https://maps.googleapis.com/maps/api/geocode/json?latlng=40.714224,-73.961452&key=" + YOUR_API_KEY;
+var revLat ="https://maps.googleapis.com/maps/api/geocode/json?latlng=40.7180628,-73.9961237&key=" + YOUR_API_KEY;
 rp(revLat)
     .then(function (htmlString) {
         // Process html...
@@ -31,7 +31,10 @@ rp(revLat)
         //   }
         // }
         //console.log(hotPoata[hotPoata.length-2].split(",")[0]);
-          console.log( JSON.parse(htmlString));
+        var address = JSON.parse(htmlString).results[0].address_components;
+        var zipcode = address[address.length -2].long_name;
+        console.log(zipcode);
+          // console.log( JSON.parse(htmlString).results[0].address_components.length - 1.long_name);
     })
     .catch(function (err) {
         // Crawling failed...
