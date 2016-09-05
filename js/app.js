@@ -37,12 +37,12 @@ var NeighborhoodList = function () {
 }
 
 function giggle(){
-  console.log("hehe",pleaseWork);
+  //console.log("hehe",pleaseWork);
   for(var y in markers){
-    if(pleaseWork.indexOf(markers[y]) < 0){
+    //console.log(y);
+    if(pleaseWork.indexOf(markers[y].title) < 0){
         markers[y].setMap(null);
-        runMap();
-        console.log("not here");
+        console.log(markers[y].title);
       }
     }
 
