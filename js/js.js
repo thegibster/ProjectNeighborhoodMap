@@ -83,6 +83,7 @@
         })();
           document.getElementById('show-listings').addEventListener('click', showListings);
           document.getElementById('hide-listings').addEventListener('click', hideListings);
+
       }
 
       // This function populates the infowindow when the marker is clicked. We'll only allow
@@ -118,3 +119,6 @@
               markers[i].setMap(null);
           }
       }
+        document.getElementById("submitted").addEventListener("submit", function(event){
+          event.preventDefault();
+});

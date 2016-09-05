@@ -44,6 +44,9 @@ function giggle(){
         markers[y].setMap(null);
         console.log(markers[y].title);
       }
+    else{
+      markers[y].setMap(map);
+    }
     }
 
 };
