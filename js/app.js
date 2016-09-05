@@ -9,6 +9,7 @@ var NeighborhoodList = function () {
 
         if (!filter) {
             pleaseWork = this.allItems();
+            giggle();
             return this.allItems();
         } else {
             // locations = ko.utils.arrayFilter(this.allItems(), function (item) {
@@ -47,7 +48,7 @@ function giggle(){
     else{
       markers[y].setMap(map);
     }
-    }
+  }
 
 };
 
