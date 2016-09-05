@@ -78,13 +78,29 @@
               // Create an onclick event to open an infowindow at each marker.
               marker.addListener('click', function() {
                   populateInfoWindow(this, largeInfowindow);
+                  this.setIcon('http://maps.google.com/mapfiles/ms/icons/green-dot.png');
               });
+              marker.addListener('mouseout', function() {
+                  this.setIcon('http://maps.google.com/mapfiles/ms/icons/blue-dot.png');
+              });
+              marker.addListener('click', toggleBounce);
           }
         })();
           document.getElementById('show-listings').addEventListener('click', showListings);
           document.getElementById('hide-listings').addEventListener('click', hideListings);
 
       }
+
+      function toggleBounce() {
+              var self = this;
+              if (self.getAnimation() !== null) {
+                self.setAnimation(null);
+              } else {
+                self.setAnimation(google.maps.Animation.BOUNCE);
+                setTimeout(function(){self.setAnimation(null);},1000);
+              }
+            }
+
 
       // This function populates the infowindow when the marker is clicked. We'll only allow
       // one infowindow which will open at the marker that is clicked, and populate based
