@@ -14,13 +14,14 @@ api and from there the corresponding zip code is extracted
 */
 function geoCode(lat, long){
   revLat ='https://maps.googleapis.com/maps/api/geocode/json?latlng='+lat+','+long+'&key=' + YOUR_API_KEY;
-  // console.log(revLat);
+   // console.log(revLat);
   ajaxGeoCodeLatLng = $.ajax( revLat )
   .done(function(htmlString) {
-    // console.log(htmlString)
+     // console.log(htmlString)
    var address = htmlString.results[0].address_components;
-   var zipcode = address[address.length -1].long_name;
+   var zipcode = address[address.length -2].long_name;
    console.log(zipcode);
+   return zipcode;
  })
   .fail(function(err) {
     console.log( 'error', err );

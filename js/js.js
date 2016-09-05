@@ -4,8 +4,8 @@
       // Create a new blank array for all the listing markers.
       var markers = [];
       var locations;
-      var pleaseWork;
-      var locationsArrayNames =["Park Ave Penthouse", "Chelsea Loft", "Union Square Open Floor Plan", "East Village Hip Studio", "TriBeCa Artsy Bachelor Pad", "Chinatown Homey Space"];
+      var filteredListing;
+      var locationsArrayNames =['Park Ave Penthouse', 'Chelsea Loft', 'Union Square Open Floor Plan', 'East Village Hip Studio', 'TriBeCa Artsy Bachelor Pad', 'Chinatown Homey Space'];
       function initMap() {
           // Constructor creates a new map - only center and zoom are required.
           map = new google.maps.Map(document.getElementById('map'), {
@@ -66,6 +66,7 @@
           for (var i = 0; i < locations.length; i++) {
               // Get the position from the location array.
               var position = locations[i].location;
+              //console.log(position);
               var title = locations[i].title;
               // Create a marker per location, and put into markers array.
               var marker = new google.maps.Marker({
@@ -109,7 +110,7 @@
           // Check to make sure the infowindow is not already opened on this marker.
           if (infowindow.marker != marker) {
               infowindow.marker = marker;
-              infowindow.setContent('<div>' + marker.title + '</div>');
+              infowindow.setContent( '<div>' + marker.title +" "+ getLat(marker.title)+" "+ getLng(marker.title)+'</div>');
               infowindow.open(map, marker);
               // Make sure the marker property is cleared if the infowindow is closed.
               infowindow.addListener('closeclick', function() {
@@ -135,7 +136,24 @@
               markers[i].setMap(null);
           }
       }
-        document.getElementById("submitted").addEventListener("submit", function(event){
+        document.getElementById('submitted').addEventListener('submit', function(event){
           event.preventDefault();
 });
+
+    function getLat(title){
+        for(var y in locations){
+          if (locations[y].title == title) {
+           // console.log("success lat ", locations[y].location.lat.toString());
+            return locations[y].location.lat.toString();
+          }
+        }
+    }
+    function getLng(title){
+        for(var y in locations){
+          if (locations[y].title == title) {
+           // console.log("success lng ",locations[y].location.lng.toString());
+            return locations[y].location.lng.toString();
+          }
+        }
+    }
 
