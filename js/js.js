@@ -86,9 +86,8 @@
               marker.addListener('click', toggleBounce);
           }
         })();
-          document.getElementById('show-listings').addEventListener('click', showListings);
-          document.getElementById('hide-listings').addEventListener('click', hideListings);
-
+          // document.getElementById('show-listings').addEventListener('click', showListings);
+          // document.getElementById('hide-listings').addEventListener('click', hideListings);
       }
 
       function toggleBounce() {
@@ -138,3 +137,4 @@
         document.getElementById("submitted").addEventListener("submit", function(event){
           event.preventDefault();
 });
+

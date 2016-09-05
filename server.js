@@ -1,3 +1,4 @@
+'use strict';
 var express     = require('express');
 var path        = require('path');
 
@@ -6,7 +7,7 @@ var cookieParser = require('cookie-parser');
 var rp           = require('request-promise');
 var bodyParser = require('body-parser');
 
-app = express();
+var app = express();
 
 
 app.use(express.static(__dirname));

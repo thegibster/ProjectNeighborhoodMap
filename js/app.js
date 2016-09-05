@@ -1,3 +1,5 @@
+'use strict';
+
 var NeighborhoodList = function () {
     this.itemToAdd = ko.observable("");
     this.allItems = ko.observableArray(locationsArrayNames); // Initial items
@@ -35,7 +37,7 @@ var NeighborhoodList = function () {
         // runMap();
          giggle();
     },this);
-}
+};
 
 function giggle(){
   //console.log("hehe",pleaseWork);
