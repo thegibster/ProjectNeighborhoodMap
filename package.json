@@ -1,3 +1,4 @@
+'use strict';
 {
   "name": "projectneighborhoodmap",
   "version": "1.0.0",
@@ -27,7 +28,7 @@
     "type": "git",
     "url": "git+https://github.com/thegibster/ProjectNeighborhoodMap.git"
   },
-  "author": "",
+  "author": "Andrew Gibbs",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/thegibster/ProjectNeighborhoodMap/issues"

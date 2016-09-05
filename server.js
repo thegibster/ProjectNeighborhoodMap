@@ -1,20 +1,13 @@
 'use strict';
 var express     = require('express');
 var path        = require('path');
-
 var logger        = require('morgan');
 var cookieParser = require('cookie-parser');
 var rp           = require('request-promise');
 var bodyParser = require('body-parser');
-
 var app = express();
 
-
 app.use(express.static(__dirname));
-
-
-
-
 
 
 var urlTerm = "https://gist.githubusercontent.com/erichurst/7882666/raw/5bdc46db47d9515269ab12ed6fb2850377fd869e/US%2520Zip%2520Codes%2520from%25202013%2520Government%2520Data";

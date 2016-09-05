@@ -3,26 +3,38 @@
 
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Neighborhood Map</title>
 
 
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
     <link rel="stylesheet" href="css/main.css">
-    <script src="https://use.fontawesome.com/498aa34772.js"></script>
+
     <script src="js/lib/knockout-3.2.0.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script src="https://use.fontawesome.com/498aa34772.js"></script>
     <script src="js/js.js" async=true></script>
     <script src="js/findAdd.js"></script>
 </head>
 
 <body>
 
-    <div class="container">
+    <div class="container-fluid">
     <div><p>Your Neighborhood:</p></div>
 
-        <form id="submitted">
-            <input  type="text" name="search" placeholder="Search.." data-bind="value: query, valueUpdate: 'keyup'" autocomplete="off" >
+        <form class="form-inline" id="submitted" >
+          <div class="form-group">
+            <div class="input-group">
+              <input  type="text"  class="form-control" name="search" placeholder="Filter.." data-bind="value: query, valueUpdate: 'keyup'" autocomplete="off" >
+              <div class="input-group-addon"><i class="fa fa-filter" aria-hidden="true"></i></div>
+            </div>
+          </div>
         </form>
+
         <div class="options-box">
             <div>
                 <!-- <input id="show-listings" type="button" value="Show Listings"> -->
@@ -30,9 +42,6 @@
             </div>
 
             <div>
-
-
-
                 <select multiple="multiple" height="7" data-bind="options:search, selectedOptions:selectedItems"> </select>
             </div>
         </div>

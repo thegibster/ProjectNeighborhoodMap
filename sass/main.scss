@@ -51,7 +51,7 @@ input[type=text] {
     border-radius: 4px;
     font-size: 16px;
     background-color: white;
-    background-image: url('../img/searchIcon.png');
+    // background-image: url('../img/searchIcon.png');
     background-position: 10px 10px;
     background-repeat: no-repeat;
     padding: 12px 20px 12px 40px;
@@ -63,3 +63,7 @@ input[type=text]:focus {
     width: 100%;
 }
 //end of w3schools search animation
+select {
+
+  background-color: #585858;
+}
