@@ -2,15 +2,30 @@
 var express     = require('express');
 var path        = require('path');
 var logger        = require('morgan');
+var morgan = require('morgan');
+var dishRouter = require('./dishRouter');
+var promoRouter = require('./promoRouter');
+var leaderRouter = require('./leaderRouter');
 var cookieParser = require('cookie-parser');
 var rp           = require('request-promise');
 var bodyParser = require('body-parser');
+var hostname = 'localhost';
+var port = 3000;
 var app = express();
 var Yelp = require('yelp');
 var result;
+
+app.use(morgan('dev'));
+
+app.use('/dishes',dishRouter);
+app.use('/promotions',promoRouter);
+app.use('/leadership',leaderRouter);
+
 app.use(express.static(__dirname));
+//app.use(express.static(__dirname + '/public'));
 
 
+//Todo, move this yelp call into a route
 var yelp = new Yelp({
   consumer_key: 'BXh2TvLI9TerhMYdSxHvCw',
   consumer_secret: 'PzeU5a8V5NltIdCldIbxGBEKtmo',
@@ -36,4 +51,7 @@ yelp.search({ term: 'food', /*location: 'Montreal'*/ll:'37.788022,-122.399797' ,
 });
 
 //start listening on port 3000
-app.listen(3000);
+//app.listen(3000);
+app.listen(port, hostname, function(){
+  console.log(`Server running at http://${hostname}:${port}/`);
+});
