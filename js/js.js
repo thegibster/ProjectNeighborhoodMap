@@ -115,13 +115,25 @@
               infowindow.marker = marker;
               // review.then(function(value){console.log("hello yo",JSON.parse(value).rating)});
               review.then(function(value){
+                var venueJson = JSON.parse(value);
                 infowindow.setContent(
                   //Should use the lat long here to  call the route to populate an iframe
 
-                  '<div>' + marker.title +' '+ getLat(marker.title)+' '+ getLng(marker.title)+'</div>' +
-                  '<button id="yelpButton" onclick="getYelpReview()">'+'Yelp Me'+'</button>' +'<h1>'+
-                 JSON.parse(value).rating
-                  +'</h1>'
+                  '<div>' + venueJson.name
+                    +'</div>'+
+                   '<div><img src ='+venueJson.image_url+'></>'
+                   +'</div> '+
+                    '<div><img src ='+venueJson.rating_img_url+'></>'+'</div>'
+
+                  // '<div>' + marker.title +' '+ getLat(marker.title)+' '+ getLng(marker.title)+'</div>' +
+                  // '<button id="yelpButton" onclick="getYelpReview()">'+'Yelp Me'+'</button>' +
+                 //  '<h1>'+
+                 // venueJson.rating
+                 //  +'</h1>'
+
+                  // '<iframe src='+venueJson.mobile_url+'>'+
+                  //   '<p>Your browser does not support iframes.</p>'+
+                  // '</iframe>'
                   );
 
               });
