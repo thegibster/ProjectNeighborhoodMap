@@ -1,5 +1,5 @@
 ## ProjectNeighborhoodMap
-``` hello 
+
 
  ```
  This project uses the npm package manager and has the following dependencies :
@@ -28,12 +28,13 @@ Site may be reached at :
 https://healthknow.herokuapp.com/
 ```
 ## Up and Running the Project
-1. After cloning or downloading the zip(unzip)
-2. To run on local server use the terminal to enter the directory and run nodemon to start the local server default port localhost 3000.
+1. After forking,cloning or downloading the zip(unzip)
+2. Run npm install to load all package dependencies.
+2. To run on local server use the terminal to enter the directory and run node server.js to start the local server default port localhost 3000.
 3. Or go to the heroku link for this project provided earlier in this Readme.
 
 ### Services provided
-1. A user must either login or sign-up to use the app.
+1. From a predifined list of locations the user may filter locations in real-time and have the list view change by filter parameter as well as the visable map markers.
 2. User will be able to view their current and past medical information including blood-type, past surgeries, etc... 
 3. User will be able to look up a pill by either name or by the scarring that is on the pill and have a response returned to them identifying said pill or medication. 
 

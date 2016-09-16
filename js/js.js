@@ -86,6 +86,8 @@
                   this.setIcon('http://maps.google.com/mapfiles/ms/icons/blue-dot.png');
               });
               marker.addListener('click', toggleBounce);
+              //Attempt to modify infowindow from a later funciton call yelp
+              // marker.addEventListener()
           }
         })();
           // document.getElementById('show-listings').addEventListener('click', showListings);
@@ -110,7 +112,24 @@
           // Check to make sure the infowindow is not already opened on this marker.
           if (infowindow.marker != marker) {
               infowindow.marker = marker;
-              infowindow.setContent( '<div>' + marker.title +' '+ getLat(marker.title)+' '+ getLng(marker.title)+'</div>');
+              infowindow.setContent(
+                //Should use the lat long here to  call the route to populate an iframe
+                Promise.resolve(getYelpReview()).then(function(value){
+                  console.log(value);
+                  console.log(typeof(value));
+                  return (
+                    '<div>' + marker.title +' '+ getLat(marker.title)+' '+ getLng(marker.title)+'</div>' +
+                    '<button id="yelpButton" onclick="getYelpReview()">'+'Yelp Me'+'</button>' +'<h1>'+
+                    value.rating.toString()
+                    +'</h1>'
+
+                    );
+                })
+                // '<div>' + marker.title +' '+ getLat(marker.title)+' '+ getLng(marker.title)+'</div>' +
+                // '<button id="yelpButton" onclick="getYelpReview()">'+'Yelp Me'+'</button>' +'<h1>'+
+                // getYelpReview()
+                // +'</h1>'
+                );
               infowindow.open(map, marker);
               // Make sure the marker property is cleared if the infowindow is closed.
               infowindow.addListener('closeclick', function() {
@@ -156,4 +175,16 @@
           }
         }
     }
+function getYelpReview(){
+  var review ;
 
+  return $.get('/leadership').done(function(list) {
+     //console.log(typeof(list));
+                   review = JSON.parse(list);
+                   // show the list
+                   console.log(review);
+                   return review;
+
+              });
+
+}

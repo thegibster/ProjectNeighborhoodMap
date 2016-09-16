@@ -12,6 +12,7 @@ leaderRouter.route('/')
 })
 
 .get(function(req,res,next){
+
         var result;
         var yum;
         // res.end('Will send all the leaders to you!');
