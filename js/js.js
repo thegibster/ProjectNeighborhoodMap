@@ -5,6 +5,7 @@
       var markers = [];
       var locations;
       var filteredListing;
+      var review = new Promise(function(resolve,reject){resolve($.get('/leadership'))});
       var locationsArrayNames =['Park Ave Penthouse', 'Chelsea Loft', 'Union Square Open Floor Plan', 'East Village Hip Studio', 'TriBeCa Artsy Bachelor Pad', 'Chinatown Homey Space'];
       function initMap() {
           // Constructor creates a new map - only center and zoom are required.
@@ -112,24 +113,26 @@
           // Check to make sure the infowindow is not already opened on this marker.
           if (infowindow.marker != marker) {
               infowindow.marker = marker;
-              infowindow.setContent(
-                //Should use the lat long here to  call the route to populate an iframe
-                Promise.resolve(getYelpReview()).then(function(value){
-                  console.log(value);
-                  console.log(typeof(value));
-                  return (
-                    '<div>' + marker.title +' '+ getLat(marker.title)+' '+ getLng(marker.title)+'</div>' +
-                    '<button id="yelpButton" onclick="getYelpReview()">'+'Yelp Me'+'</button>' +'<h1>'+
-                    value.rating.toString()
-                    +'</h1>'
+              // review.then(function(value){console.log("hello yo",JSON.parse(value).rating)});
+              review.then(function(value){
+                infowindow.setContent(
+                  //Should use the lat long here to  call the route to populate an iframe
 
-                    );
-                })
-                // '<div>' + marker.title +' '+ getLat(marker.title)+' '+ getLng(marker.title)+'</div>' +
-                // '<button id="yelpButton" onclick="getYelpReview()">'+'Yelp Me'+'</button>' +'<h1>'+
-                // getYelpReview()
-                // +'</h1>'
-                );
+                  '<div>' + marker.title +' '+ getLat(marker.title)+' '+ getLng(marker.title)+'</div>' +
+                  '<button id="yelpButton" onclick="getYelpReview()">'+'Yelp Me'+'</button>' +'<h1>'+
+                 JSON.parse(value).rating
+                  +'</h1>'
+                  );
+
+              });
+              // infowindow.setContent(
+              //   //Should use the lat long here to  call the route to populate an iframe
+
+              //   // '<div>' + marker.title +' '+ getLat(marker.title)+' '+ getLng(marker.title)+'</div>' +
+              //   // '<button id="yelpButton" onclick="getYelpReview()">'+'Yelp Me'+'</button>' +'<h1>'+
+              //   // getYelpReview()
+              //   // +'</h1>'
+              //   );
               infowindow.open(map, marker);
               // Make sure the marker property is cleared if the infowindow is closed.
               infowindow.addListener('closeclick', function() {
@@ -175,16 +178,8 @@
           }
         }
     }
-function getYelpReview(){
-  var review ;
+// function getYelpReview(){
+//   var review = new Promise(function(resolve,reject){resolve($.get('/leadership'))});
+//   review.then(function(value){console.log("hello yo",JSON.parse(value).rating)});
 
-  return $.get('/leadership').done(function(list) {
-     //console.log(typeof(list));
-                   review = JSON.parse(list);
-                   // show the list
-                   console.log(review);
-                   return review;
-
-              });
-
-}
+// }
