@@ -5,7 +5,8 @@
       var markers = [];
       var locations;
       var filteredListing;
-      var review = new Promise(function(resolve,reject){resolve($.get('/leadership'))});
+      // var review = new Promise(function(resolve,reject){resolve($.get('/leadership'))});
+      var review ;
       var locationsArrayNames =['Park Ave Penthouse', 'Chelsea Loft', 'Union Square Open Floor Plan', 'East Village Hip Studio', 'TriBeCa Artsy Bachelor Pad', 'Chinatown Homey Space'];
       function initMap() {
           // Constructor creates a new map - only center and zoom are required.
@@ -114,8 +115,14 @@
           if (infowindow.marker != marker) {
               infowindow.marker = marker;
               // review.then(function(value){console.log("hello yo",JSON.parse(value).rating)});
+              review = new Promise(
+                function(resolve,reject){
+                  resolve($.get('/leadership',{lat:getLat(marker.title),lng:getLng(marker.title)}))
+                  }
+                );
               review.then(function(value){
                 var venueJson = JSON.parse(value);
+                console.log("hello yo",JSON.parse(value).rating);
                 infowindow.setContent(
                   //Should use the lat long here to  call the route to populate an iframe
 

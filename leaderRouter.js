@@ -26,7 +26,9 @@ leaderRouter.route('/')
 
          Promise.resolve(
             // See http://www.yelp.com/developers/documentation/v2/search_api
-            yelp.search({ term: 'food', /*location: 'Montreal'*/ll:'37.788022,-122.399797' ,total:5})
+            // ll:'37.788022,-122.399797'
+
+            yelp.search({ term: 'food', /*location: 'Montreal'*/ll:req.query.lat+','+req.query.lng ,total:5})
             .then(function (data) {
               if(data.businesses.length>= 5){
                   result = data.businesses.slice(0,5);
