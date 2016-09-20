@@ -10,7 +10,9 @@ yelpRouter.route('/')
       res.writeHead(200, { 'Content-Type': 'text/plain' });
       next();
 })
-
+/*calling the get route for the yelp router will trigger a call to the yelp api
+returning a promise in JSON format that is called from js.js during the map populate function
+*/
 .get(function(req,res,next){
 
         var result;
@@ -27,7 +29,9 @@ yelpRouter.route('/')
          Promise.resolve(
             // See http://www.yelp.com/developers/documentation/v2/search_api
             // ll:'37.788022,-122.399797'
-
+            /*The yelp search takes the request parameters from the location of the map marker
+              and grabs up to 5 restaurants from that location
+            */
             yelp.search({ term: 'food', /*location: 'Montreal'*/ll:req.query.lat+','+req.query.lng ,total:5})
             .then(function (data) {
               if(data.businesses.length>= 5){

@@ -116,6 +116,9 @@
           if (infowindow.marker != marker) {
               infowindow.marker = marker;
               // review.then(function(value){console.log("hello yo",JSON.parse(value).rating)});
+              /* review is the result of an ajax call to the back-end route passing the lat/lng as parameters
+                 after it has resolved the parsed JSON value is passed to venueJson
+              */
               review = new Promise(
                 function(resolve,reject){
                   resolve($.get('/yelping',{lat:getLat(marker.title),lng:getLng(marker.title)}))
@@ -124,6 +127,7 @@
               review.then(function(value){
                  venueJson = JSON.parse(value);
                 console.log("hello yo",JSON.parse(value).length);
+                // For each item up to the hard 5 limit , an item is generated with the yelp review
                 var populatePlacesArray =   venueJson.map(function(item){
                     return   '<div>' + item.name
                     +'</div>'+
