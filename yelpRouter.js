@@ -1,11 +1,11 @@
 var express = require('express');
 var bodyParser = require('body-parser');
-var leaderRouter = express.Router();
+var yelpRouter = express.Router();
 var fetch = require('node-fetch');
 var Yelp = require('yelp');
-leaderRouter.use(bodyParser.json());
+yelpRouter.use(bodyParser.json());
 
-leaderRouter.route('/')
+yelpRouter.route('/')
 .all(function(req,res,next) {
       res.writeHead(200, { 'Content-Type': 'text/plain' });
       next();
@@ -15,7 +15,7 @@ leaderRouter.route('/')
 
         var result;
         var yum;
-        // res.end('Will send all the leaders to you!');
+        // res.end('Will send all the yelps to you!');
         var yelp = new Yelp({
           consumer_key: 'BXh2TvLI9TerhMYdSxHvCw',
           consumer_secret: 'PzeU5a8V5NltIdCldIbxGBEKtmo',
@@ -47,7 +47,7 @@ leaderRouter.route('/')
             })
 
 
-          ).then(s =>  res.end(JSON.stringify(s[0])));
+          ).then(s =>  res.end(JSON.stringify(s)));
          /*
           !!!!!
               This is where the data gets to the front from the back, the return data needed
@@ -58,14 +58,14 @@ leaderRouter.route('/')
 })
 
 .post(function(req, res, next){
-    res.end('Will add the leader: ' + req.body.name + ' with details: ' + req.body.description);
+    res.end('Will add the yelp: ' + req.body.name + ' with details: ' + req.body.description);
 })
 
 .delete(function(req, res, next){
-        res.end('Deleting all leaders');
+        res.end('Deleting all yelps');
 });
 
-leaderRouter.route('/:leaderId')
+yelpRouter.route('/:yelpId')
 .all(function(req,res,next) {
       res.writeHead(200, { 'Content-Type': 'text/plain' });
       next();
@@ -73,18 +73,18 @@ leaderRouter.route('/:leaderId')
 
 .get(function(req,res,next){
 
-        res.end('Will send details of the leader: ' + req.params.leaderId +' to you!');
+        res.end('Will send details of the yelp: ' + req.params.yelpId +' to you!');
 
 })
 
 .put(function(req, res, next){
-        res.write('Updating the leader: ' + req.params.leaderId + '\n');
-    res.end('Will update the leader: ' + req.body.name +
+        res.write('Updating the yelp: ' + req.params.yelpId + '\n');
+    res.end('Will update the yelp: ' + req.body.name +
             ' with details: ' + req.body.description);
 })
 
 .delete(function(req, res, next){
-        res.end('Deleting leader: ' + req.params.leaderId);
+        res.end('Deleting yelp: ' + req.params.yelpId);
 });
 
-module.exports = leaderRouter;
+module.exports = yelpRouter;

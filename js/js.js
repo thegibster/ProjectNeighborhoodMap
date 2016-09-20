@@ -5,8 +5,9 @@
       var markers = [];
       var locations;
       var filteredListing;
-      // var review = new Promise(function(resolve,reject){resolve($.get('/leadership'))});
+      // var review = new Promise(function(resolve,reject){resolve($.get('/yelping'))});
       var review ;
+      var venueJson;
       var locationsArrayNames =['Park Ave Penthouse', 'Chelsea Loft', 'Union Square Open Floor Plan', 'East Village Hip Studio', 'TriBeCa Artsy Bachelor Pad', 'Chinatown Homey Space'];
       function initMap() {
           // Constructor creates a new map - only center and zoom are required.
@@ -117,20 +118,27 @@
               // review.then(function(value){console.log("hello yo",JSON.parse(value).rating)});
               review = new Promise(
                 function(resolve,reject){
-                  resolve($.get('/leadership',{lat:getLat(marker.title),lng:getLng(marker.title)}))
+                  resolve($.get('/yelping',{lat:getLat(marker.title),lng:getLng(marker.title)}))
                   }
                 );
               review.then(function(value){
-                var venueJson = JSON.parse(value);
-                console.log("hello yo",JSON.parse(value).rating);
+                 venueJson = JSON.parse(value);
+                console.log("hello yo",JSON.parse(value).length);
+                var populatePlacesArray =   venueJson.map(function(item){
+                    return   '<div>' + item.name
+                    +'</div>'+
+                   '<div><img src ='+item.image_url+'></>'
+                   +'</div> '+
+                    '<div><img src ='+item.rating_img_url+'></>'+'</div>'
+                  });
                 infowindow.setContent(
                   //Should use the lat long here to  call the route to populate an iframe
-
-                  '<div>' + venueJson.name
-                    +'</div>'+
-                   '<div><img src ='+venueJson.image_url+'></>'
-                   +'</div> '+
-                    '<div><img src ='+venueJson.rating_img_url+'></>'+'</div>'
+                  '<div>'+populatePlacesArray+'</div>'
+                  // '<div>' + venueJson.name
+                  //   +'</div>'+
+                  //  '<div><img src ='+venueJson.image_url+'></>'
+                  //  +'</div> '+
+                  //   '<div><img src ='+venueJson.rating_img_url+'></>'+'</div>'
 
                   // '<div>' + marker.title +' '+ getLat(marker.title)+' '+ getLng(marker.title)+'</div>' +
                   // '<button id="yelpButton" onclick="getYelpReview()">'+'Yelp Me'+'</button>' +
@@ -156,6 +164,8 @@
               // Make sure the marker property is cleared if the infowindow is closed.
               infowindow.addListener('closeclick', function() {
                   infowindow.marker = null;
+                  review = null;
+                  venueJson= null;
               });
           }
       }
@@ -198,7 +208,7 @@
         }
     }
 // function getYelpReview(){
-//   var review = new Promise(function(resolve,reject){resolve($.get('/leadership'))});
+//   var review = new Promise(function(resolve,reject){resolve($.get('/yelping'))});
 //   review.then(function(value){console.log("hello yo",JSON.parse(value).rating)});
 
 // }

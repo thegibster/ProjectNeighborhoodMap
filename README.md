@@ -4,16 +4,16 @@
  ```
  This project uses the npm package manager and has the following dependencies :
 
-    "body-parser": "~1.13.2",
-    "cookie-parser": "~1.3.5",
-    "debug": "~2.2.0",
-    "express": "~4.13.1",
-    "gulp-sass": "^2.3.2",
-    "morgan": "~1.6.1",
-    "node-fetch": "^1.6.0",
-    "request": "^2.74.0",
-    "request-promise": "^4.1.1",
-    "yelp": "^1.0.1"
+     "body-parser": "~1.13.2",
+     "cookie-parser": "~1.3.5",
+     "debug": "~2.2.0",
+     "express": "~4.13.1",
+     "gulp-sass": "^2.3.2",
+     "morgan": "~1.6.1",
+     "node-fetch": "^1.6.0",
+     "request": "^2.74.0",
+     "request-promise": "^4.1.1",
+     "yelp": "^1.0.1"
 ```
 Which can be installed using the npm install commad via the command line of the folder where you would contain this project.
 

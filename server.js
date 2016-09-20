@@ -3,9 +3,7 @@ var express     = require('express');
 var path        = require('path');
 var logger        = require('morgan');
 var morgan = require('morgan');
-var dishRouter = require('./dishRouter');
-var promoRouter = require('./promoRouter');
-var leaderRouter = require('./leaderRouter');
+var yelpRouter = require('./yelpRouter');
 var cookieParser = require('cookie-parser');
 var rp           = require('request-promise');
 var bodyParser = require('body-parser');
@@ -17,9 +15,8 @@ var result;
 
 app.use(morgan('dev'));
 
-app.use('/dishes',dishRouter);
-app.use('/promotions',promoRouter);
-app.use('/leadership',leaderRouter);
+
+app.use('/yelping',yelpRouter);
 
 app.use(express.static(__dirname));
 //app.use(express.static(__dirname + '/public'));
@@ -53,5 +50,5 @@ yelp.search({ term: 'food', /*location: 'Montreal'*/ll:'37.788022,-122.399797' ,
 //start listening on port 3000
 //app.listen(3000);
 app.listen(port, hostname, function(){
-  console.log(`Server running at http://${hostname}:${port}/`);
+  console.log(`Server running at http://${hostname}:${port}/`); //ES6 backtick notation
 });
