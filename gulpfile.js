@@ -3,6 +3,8 @@
 
 var gulp = require('gulp');
 var del = require('del');
+var inject = require('gulp-inject');
+var files = require('./gulp/gulp.config.js');
 var sass = require('gulp-sass');
 var autoprefixer = require('gulp-autoprefixer');
 var browserSync = require('browser-sync').create();
@@ -13,17 +15,18 @@ var uglify = require('gulp-uglify');
 
 gulp.task('default', ['clean','copy-html', /*'copy-images',*/ 'styles', 'lint', 'scripts'], function() {
   gulp.watch('sass/**/*.scss', ['styles']);
-  gulp.watch('js/**/*.js', ['lint']);
+  gulp.watch(files.app_files.js, ['lint']);
   gulp.watch('/index.html', ['copy-html']);
-  gulp.watch('./dist/index.html').on('change', browserSync.reload);
+  gulp.watch('files.dist_dir/index.html').on('change', browserSync.reload);
 
   browserSync.init({
-    server: './dist'
+    server: 'files.dist_dir'
   });
 });
 
 gulp.task('dist', [
   'copy-html',
+  'index',
   // 'copy-images',
   'styles',
   'lint',
@@ -31,7 +34,13 @@ gulp.task('dist', [
 ]);
 
 gulp.task('clean',function(callback){
-  del(['./dist'],{force: true},callback)
+  del(['files.dist_dir'],{force: true},callback)
+});
+
+gulp.task('index',function(){
+  return gulp.src('./index.html')
+  .pipe(inject(gulp.src(files.app_files.tpl_src),{ignorePath: 'dist'}))
+  .pipe(gulp.dest('files.dist_dir'));
 });
 
 gulp.task('scripts', function() {
@@ -49,7 +58,7 @@ gulp.task('scripts-dist', function() {
 
 gulp.task('copy-html', function() {
   gulp.src('./index.html')
-    .pipe(gulp.dest('./dist'));
+    .pipe(gulp.dest('files.dist_dir'));
 });
 
 // gulp.task('copy-images', function() {
@@ -70,7 +79,7 @@ gulp.task('styles', function() {
 });
 
 gulp.task('lint', function () {
-  return gulp.src(['js/**/*.js'])
+  return gulp.src(files.app_files.js)
     // eslint() attaches the lint output to the eslint property
     // of the file object so it can be used by other modules.
     .pipe(eslint())
