@@ -1,6 +1,8 @@
 /*eslint-env node */
+//Udacity course on Web Tooling & Automation
 
 var gulp = require('gulp');
+var del = require('del');
 var sass = require('gulp-sass');
 var autoprefixer = require('gulp-autoprefixer');
 var browserSync = require('browser-sync').create();
@@ -9,7 +11,7 @@ var eslint = require('gulp-eslint');
 var concat = require('gulp-concat');
 var uglify = require('gulp-uglify');
 
-gulp.task('default', ['copy-html', /*'copy-images',*/ 'styles', 'lint', 'scripts'], function() {
+gulp.task('default', ['clean','copy-html', /*'copy-images',*/ 'styles', 'lint', 'scripts'], function() {
   gulp.watch('sass/**/*.scss', ['styles']);
   gulp.watch('js/**/*.js', ['lint']);
   gulp.watch('/index.html', ['copy-html']);
@@ -27,6 +29,10 @@ gulp.task('dist', [
   'lint',
   'scripts-dist'
 ]);
+
+gulp.task('clean',function(callback){
+  del(['./dist'],{force: true},callback)
+});
 
 gulp.task('scripts', function() {
   gulp.src('js/**/*.js')
