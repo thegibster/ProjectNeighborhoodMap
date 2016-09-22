@@ -73,9 +73,16 @@ select{
       border:0px;
       outline:0px;
 }
+#yelp-review-container{
+  width:20%;
+  height:100px;
+  // overflow:hidden;
+}
 
 .container-fluid{
   height: 100%;
+  padding-right: 0px;
+  padding-left: 0px;
 }
 .col-md-8 {
     height: 100%;
@@ -88,4 +95,13 @@ select{
 
 .row{
   height: 100%;
+}
+#dropme::-webkit-scrollbar {display:none;}
+#dropme::-moz-scrollbar {display:none;}
+#dropme::-o-scrollbar {display:none;}
+#dropme::-google-ms-scrollbar {display:none;}
+#dropme::-khtml-scrollbar {display:none;}
+
+.yummy{
+  width: 100px;
 }

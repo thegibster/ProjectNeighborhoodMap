@@ -129,11 +129,11 @@
                 console.log("hello yo",JSON.parse(value).length);
                 // For each item up to the hard 5 limit , an item is generated with the yelp review
                 var populatePlacesArray =   venueJson.map(function(item){
-                    return   '<div>' + item.name
+                    return  '<div class="yummy">'+ '<div>' + item.name
                     +'</div>'+
                    '<div><img src ='+item.image_url+'></>'
                    +'</div> '+
-                    '<div><img src ='+item.rating_img_url+'></>'+'</div>'
+                    '<div><img src ='+item.rating_img_url+'></>'+'</div>'+'</div'
                   });
                 infowindow.setContent(
                   //Should use the lat long here to  call the route to populate an iframe

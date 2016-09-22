@@ -27,7 +27,6 @@ gulp.task('default', ['clean','copy-html', /*'copy-images',*/ 'styles', 'lint', 
 gulp.task('dist', [
   'copy-html',
   'index',
-  // 'copy-images',
   'styles',
   'lint',
   'scripts-dist'
