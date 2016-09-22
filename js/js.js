@@ -137,7 +137,7 @@
                   });
                 infowindow.setContent(
                   //Should use the lat long here to  call the route to populate an iframe
-                  '<div>'+populatePlacesArray+'</div>'
+                  '<div id="yelp-review-container">'+populatePlacesArray+'</div>'
                   // '<div>' + venueJson.name
                   //   +'</div>'+
                   //  '<div><img src ='+venueJson.image_url+'></>'
@@ -154,7 +154,9 @@
                   //   '<p>Your browser does not support iframes.</p>'+
                   // '</iframe>'
                   );
-
+                  // Resize the drop down list dynamically
+                  var selectDrop = $("#dropme");
+                  selectDrop.size = selectDrop.length;
               });
               // infowindow.setContent(
               //   //Should use the lat long here to  call the route to populate an iframe

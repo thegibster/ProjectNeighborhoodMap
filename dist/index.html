@@ -24,29 +24,36 @@
 <body>
 
     <div class="container-fluid">
-    <div><p>Your Neighborhood:</p></div>
+    <!-- <div><p>Your Neighborhood:</p></div> -->
+        <div class="row">
 
-        <form class="form-inline" id="submitted" >
-          <div class="form-group">
-            <div class="input-group">
-              <input  type="text"  class="form-control" name="search" placeholder="Filter.." data-bind="value: query, valueUpdate: 'keyup'" autocomplete="off" >
-              <div class="input-group-addon"><i class="fa fa-filter" aria-hidden="true"></i></div>
-            </div>
-          </div>
-        </form>
+        <div class="col-xs-12 col-sm-12 col-md-4">
+            <form class="form-inline" id="submitted" >
+              <div class="form-group">
+                <div class="input-group">
+                  <input  type="text"  class="form-control" name="search" placeholder="Filter.." data-bind="value: query, valueUpdate: 'keyup'" autocomplete="off" >
+                  <div class="input-group-addon"><i class="fa fa-filter" aria-hidden="true"></i></div>
+                </div>
+              </div>
+            </form>
 
-        <div class="options-box">
-            <div>
-                <!-- <input id="show-listings" type="button" value="Show Listings"> -->
-                <!-- <input id="hide-listings" type="button" value="Hide Listings"> -->
+            <div class="options-box">
+                <div>
+                    <!-- <input id="show-listings" type="button" value="Show Listings"> -->
+                    <!-- <input id="hide-listings" type="button" value="Hide Listings"> -->
+                </div>
+
+                <div>
+                    <select id = "dropme" multiple="multiple" height="7" data-bind="options:search, selectedOptions:selectedItems"> </select>
+                </div>
             </div>
 
-            <div>
-                <select multiple="multiple" height="7" data-bind="options:search, selectedOptions:selectedItems"> </select>
-            </div>
         </div>
-        <div id="map"></div>
-    </div>
+
+        <div class="col-xs-12 col-sm-12 col-md-8" ><div id="map"></div></div>
+
+        </div><!--End of row container  -->
+    </div><!--End of container fluid -->
 
 
 
