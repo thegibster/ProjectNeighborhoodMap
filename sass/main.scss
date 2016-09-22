@@ -91,6 +91,8 @@ select{
 
 .options-box {
   border: 0px solid;
+  text-align: center;
+  width: auto;
 }
 
 .row{
@@ -104,4 +106,18 @@ select{
 
 .yummy{
   width: 100px;
+}
+
+.input-group {
+  width: 90%;
+  margin: auto;
+}
+.form-control{
+  border: none;
+}
+.col-sm-10{
+  text-align: center;
+}
+.col-xs-10 {
+    width: 100%;
 }
