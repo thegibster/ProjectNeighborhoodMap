@@ -89,7 +89,7 @@
                   this.setIcon('http://maps.google.com/mapfiles/ms/icons/blue-dot.png');
               });
               marker.addListener('click', toggleBounce);
-              //Attempt to modify infowindow from a later funciton call yelp
+              //Attempt to modify infowindow from a later function call yelp
               // marker.addEventListener()
           }
         })();

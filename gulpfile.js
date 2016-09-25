@@ -29,7 +29,8 @@ gulp.task('dist', [
   'index',
   'styles',
   'lint',
-  'scripts-dist'
+  'scripts-dist',
+  // 'copy-images'
   // ,'copy-cssdist2'
 ]);
 
@@ -64,6 +65,11 @@ gulp.task('copy-html', function() {
 // gulp.task('copy-cssdist2', function() {
 //   gulp.src('./dist/css/main.css')
 //     .pipe(gulp.dest('css'));
+// });
+
+// gulp.task('copy-images', function() {
+//   gulp.src('img/**/*.jpg')
+//     .pipe(gulp.dest('dist/img'));
 // });
 
 gulp.task('styles', function() {
