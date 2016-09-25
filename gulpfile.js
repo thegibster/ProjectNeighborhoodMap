@@ -4,6 +4,9 @@
 var gulp = require('gulp');
 var del = require('del');
 var inject = require('gulp-inject');
+var source = require('vinyl-source-stream');
+var request = require('request');
+var merge = require('merge2');
 var files = require('./gulp/gulp.config.js');
 var sass = require('gulp-sass');
 var autoprefixer = require('gulp-autoprefixer');
@@ -12,8 +15,9 @@ var eslint = require('gulp-eslint');
 // var jasmine = require('gulp-jasmine-phantom');
 var concat = require('gulp-concat');
 var uglify = require('gulp-uglify');
+var buffer = require('gulp-buffer');
 
-gulp.task('default', ['clean','copy-html', /*'copy-images',*/ 'styles', 'lint', 'scripts'], function() {
+gulp.task('default', ['clean','copy-html', /*'copy-images',*/ 'styles', /*'lint',*/ 'scripts'], function() {
   gulp.watch('sass/**/*.scss', ['styles']);
   gulp.watch(files.app_files.js, ['lint']);
   gulp.watch('/index.html', ['copy-html']);
@@ -23,6 +27,15 @@ gulp.task('default', ['clean','copy-html', /*'copy-images',*/ 'styles', 'lint', 
     server: 'files.dist_dir'
   });
 });
+
+gulp.task('watchFiles', function() {
+  gulp.watch('sass/**/*.scss', ['styles']);
+  // gulp.watch(files.app_files.js, ['lint']);
+  gulp.watch('./index.html', ['copy-html']);
+  gulp.watch('files.dist_dir/index.html').on('change', browserSync.reload);
+});
+
+gulp.task('serve', ['watchFiles']);
 
 gulp.task('dist', [
   'copy-html',
@@ -104,3 +117,19 @@ gulp.task('lint', function () {
 //       vendor: 'js/**/*.js'
 //     }));
 // });
+
+gulp.task('js', function() {
+
+  var jquery = request(files.jquery)
+    .pipe(source('jquery.js'));
+  var bootstrap = request(files.bootstrap)
+    .pipe(source('bootstrap.js'));
+  var fontawesome = request(files.fontawesome)
+    .pipe(source('fontawesome.js'));
+  var main = gulp.src('main.js');
+
+  return merge(jquery, bootstrap,fontawesome, main)
+    .pipe(buffer())
+    .pipe(concat('concat.js'))
+    .pipe(gulp.dest('dist'));
+});

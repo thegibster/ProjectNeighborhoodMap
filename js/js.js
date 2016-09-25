@@ -8,7 +8,8 @@
       // var review = new Promise(function(resolve,reject){resolve($.get('/yelping'))});
       var review ;
       var venueJson;
-      var locationsArrayNames =['Park Ave Penthouse', 'Chelsea Loft', 'Union Square Open Floor Plan', 'East Village Hip Studio', 'TriBeCa Artsy Bachelor Pad', 'Chinatown Homey Space'];
+      // var locationsArrayNames =['Park Ave Penthouse', 'Chelsea Loft', 'Union Square Open Floor Plan', 'East Village Hip Studio', 'TriBeCa Artsy Bachelor Pad', 'Chinatown Homey Space'];
+      var locationsArrayNames =[];
       function initMap() {
           // Constructor creates a new map - only center and zoom are required.
           map = new google.maps.Map(document.getElementById('map'), {
@@ -80,6 +81,7 @@
               });
               // Push the marker to our array of markers.
               markers.push(marker);
+              locationsArrayNames.push(marker.title);
               // Create an onclick event to open an infowindow at each marker.
               marker.addListener('click', function() {
                   populateInfoWindow(this, largeInfowindow);
