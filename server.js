@@ -1,11 +1,11 @@
 'use strict';
-var express     = require('express');
-var path        = require('path');
-var logger        = require('morgan'); // check to see if this line is needed
+var express = require('express');
+var path = require('path');
+var logger = require('morgan'); // check to see if this line is needed
 var morgan = require('morgan');
 var yelpRouter = require('./yelpRouter');
 var cookieParser = require('cookie-parser');
-var rp           = require('request-promise');
+var rp = require('request-promise');
 var bodyParser = require('body-parser');
 var hostname = 'localhost';
 var port = 3000;
@@ -16,7 +16,7 @@ var result;
 app.use(morgan('dev'));
 
 
-app.use('/yelping',yelpRouter);
+app.use('/yelping', yelpRouter);
 
 app.use(express.static(__dirname));
 //app.use(express.static(__dirname + '/public'));
@@ -49,6 +49,6 @@ app.use(express.static(__dirname));
 
 //start listening on port 3000
 //app.listen(3000);
-app.listen(port, hostname, function(){
-  console.log(`Server running at http://${hostname}:${port}/`); //ES6 backtick notation
+app.listen(port, hostname, function() {
+    console.log(`Server running at http://${hostname}:${port}/`); //ES6 backtick notation
 });

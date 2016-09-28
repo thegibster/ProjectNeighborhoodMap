@@ -6,89 +6,96 @@ var Yelp = require('yelp');
 yelpRouter.use(bodyParser.json());
 
 yelpRouter.route('/')
-.all(function(req,res,next) {
-      res.writeHead(200, { 'Content-Type': 'text/plain' });
-      next();
-})
-/*calling the get route for the yelp router will trigger a call to the yelp api
-returning a promise in JSON format that is called from js.js during the map populate function
-*/
-.get(function(req,res,next){
+    .all(function(req, res, next) {
+        res.writeHead(200, {
+            'Content-Type': 'text/plain'
+        });
+        next();
+    })
+    /*calling the get route for the yelp router will trigger a call to the yelp api
+    returning a promise in JSON format that is called from js.js during the map populate function
+    */
+    .get(function(req, res, next) {
 
         var result;
         var yum;
         // res.end('Will send all the yelps to you!');
         var yelp = new Yelp({
-          consumer_key: 'BXh2TvLI9TerhMYdSxHvCw',
-          consumer_secret: 'PzeU5a8V5NltIdCldIbxGBEKtmo',
-          token: 'o07xHbkMyKyz1TmDHk0MfWEaOr4ngj4U',
-          token_secret: 'WBDdjTOkZoEZZ_w7-w4b4yAlFdQ',
+            consumer_key: 'BXh2TvLI9TerhMYdSxHvCw',
+            consumer_secret: 'PzeU5a8V5NltIdCldIbxGBEKtmo',
+            token: 'o07xHbkMyKyz1TmDHk0MfWEaOr4ngj4U',
+            token_secret: 'WBDdjTOkZoEZZ_w7-w4b4yAlFdQ',
         });
 
 
-         Promise.resolve(
+        Promise.resolve(
             // See http://www.yelp.com/developers/documentation/v2/search_api
             // ll:'37.788022,-122.399797'
             /*The yelp search takes the request parameters from the location of the map marker
               and grabs up to 5 restaurants from that location
             */
-            yelp.search({ term: 'food', /*location: 'Montreal'*/ll:req.query.lat+','+req.query.lng ,total:5})
-            .then(function (data) {
-              if(data.businesses.length>= 5){
-                  result = data.businesses.slice(0,5);
-                  return result;
-              }
-              else{
-                result = data.businesses.slice();
-                return result;
-              }
-              /* Take this data and push into react module for when a marker is pressed and populated
-              */
-              console.log(result[0]);
+            yelp.search({
+                term: 'food',
+                /*location: 'Montreal'*/ ll: req.query.lat + ',' + req.query.lng,
+                total: 5
             })
-            .catch(function (err) {
-              console.error(err);
+            .then(function(data) {
+                if (data.businesses.length >= 5) {
+                    result = data.businesses.slice(0, 5);
+                    return result;
+                } else {
+                    result = data.businesses.slice();
+                    return result;
+                }
+                /* Take this data and push into react module for when a marker is pressed and populated
+                 */
+                console.log(result[0]);
+            })
+            .catch(function(err) {
+                console.error(err);
             })
 
 
-          ).then(s =>  res.end(JSON.stringify(s)));
-         /*
-          !!!!!
-              This is where the data gets to the front from the back, the return data needed
-              to be converted to json to fix the error that was persisting until now.
-          !!!!!
-         */
+        ).then(s => res.end(JSON.stringify(s)));
+        /*
+         !!!!!
+             This is where the data gets to the front from the back, the return data needed
+             to be converted to json to fix the error that was persisting until now.
+         !!!!!
+        */
 
-})
+    })
 
-.post(function(req, res, next){
+.post(function(req, res, next) {
     res.end('Will add the yelp: ' + req.body.name + ' with details: ' + req.body.description);
 })
 
-.delete(function(req, res, next){
-        res.end('Deleting all yelps');
+.delete(function(req, res, next) {
+    res.end('Deleting all yelps');
 });
 
 yelpRouter.route('/:yelpId')
-.all(function(req,res,next) {
-      res.writeHead(200, { 'Content-Type': 'text/plain' });
-      next();
+    .all(function(req, res, next) {
+        res.writeHead(200, {
+            'Content-Type': 'text/plain'
+        });
+        next();
+    })
+
+.get(function(req, res, next) {
+
+    res.end('Will send details of the yelp: ' + req.params.yelpId + ' to you!');
+
 })
 
-.get(function(req,res,next){
-
-        res.end('Will send details of the yelp: ' + req.params.yelpId +' to you!');
-
-})
-
-.put(function(req, res, next){
-        res.write('Updating the yelp: ' + req.params.yelpId + '\n');
+.put(function(req, res, next) {
+    res.write('Updating the yelp: ' + req.params.yelpId + '\n');
     res.end('Will update the yelp: ' + req.body.name +
-            ' with details: ' + req.body.description);
+        ' with details: ' + req.body.description);
 })
 
-.delete(function(req, res, next){
-        res.end('Deleting yelp: ' + req.params.yelpId);
+.delete(function(req, res, next) {
+    res.end('Deleting yelp: ' + req.params.yelpId);
 });
 
 module.exports = yelpRouter;
