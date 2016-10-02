@@ -1,3 +1,8 @@
+todo:
+
+
+done:
+click event add to list drop down and also works when filtered.
 bootstrap the responsiveness to prevent yelp ifram from going off screen
 add map action to select list
-done: click event add to list drop down and also works when filtered.
+add click event to the dynamic yelp reviews

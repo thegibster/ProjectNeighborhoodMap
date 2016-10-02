@@ -1,3 +1,7 @@
+'use strict';
+//From the dynamically generated knockout view list, when a item within the select section is changed
+//the map marker corresponding to that selection will be triggered.
+
 $('option').click(function(){
     $(this).addClass('mapLink');
 })

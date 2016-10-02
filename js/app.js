@@ -6,15 +6,17 @@ var NeighborhoodList = function() {
     this.selectedItems = ko.observableArray(['Chelsea Loft']); // Initial selection
     this.query = ko.observable('');
 
+
     this.search = ko.computed(function() {
         var filter = this.query().toLowerCase();
 
+        //If there is no typing happening in the search box then the list is shown in the current search match
         if (!filter) {
             filteredListing = this.allItems();
             applyFilter();
             return this.allItems();
         } else {
-
+        //Else the view will have a filtered list from which to draw from
             applyFilter();
             filteredListing = ko.utils.arrayFilter(this.allItems(), function(item) {
                 return item.toLowerCase().indexOf(filter) !== -1;

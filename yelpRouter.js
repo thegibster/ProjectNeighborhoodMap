@@ -1,3 +1,4 @@
+'use strict';
 var express = require('express');
 var bodyParser = require('body-parser');
 var yelpRouter = express.Router();
@@ -19,7 +20,6 @@ yelpRouter.route('/')
 
         var result;
         var yum;
-        // res.end('Will send all the yelps to you!');
         var yelp = new Yelp({
             consumer_key: 'BXh2TvLI9TerhMYdSxHvCw',
             consumer_secret: 'PzeU5a8V5NltIdCldIbxGBEKtmo',
@@ -34,10 +34,11 @@ yelpRouter.route('/')
             /*The yelp search takes the request parameters from the location of the map marker
               and grabs up to 5 restaurants from that location
             */
+            //Commented upper code is for testing purposes
             yelp.search({
                 term: 'food',
                 /*location: 'Montreal'*/ ll: req.query.lat + ',' + req.query.lng,
-                total: 5
+                total: 5 // Only return the top 5 results
             })
             .then(function(data) {
                 if (data.businesses.length >= 5) {
@@ -47,8 +48,7 @@ yelpRouter.route('/')
                     result = data.businesses.slice();
                     return result;
                 }
-                /* Take this data and push into react module for when a marker is pressed and populated
-                 */
+
                 console.log(result[0]);
             })
             .catch(function(err) {
@@ -65,37 +65,5 @@ yelpRouter.route('/')
         */
 
     })
-
-.post(function(req, res, next) {
-    res.end('Will add the yelp: ' + req.body.name + ' with details: ' + req.body.description);
-})
-
-.delete(function(req, res, next) {
-    res.end('Deleting all yelps');
-});
-
-yelpRouter.route('/:yelpId')
-    .all(function(req, res, next) {
-        res.writeHead(200, {
-            'Content-Type': 'text/plain'
-        });
-        next();
-    })
-
-.get(function(req, res, next) {
-
-    res.end('Will send details of the yelp: ' + req.params.yelpId + ' to you!');
-
-})
-
-.put(function(req, res, next) {
-    res.write('Updating the yelp: ' + req.params.yelpId + '\n');
-    res.end('Will update the yelp: ' + req.body.name +
-        ' with details: ' + req.body.description);
-})
-
-.delete(function(req, res, next) {
-    res.end('Deleting yelp: ' + req.params.yelpId);
-});
 
 module.exports = yelpRouter;

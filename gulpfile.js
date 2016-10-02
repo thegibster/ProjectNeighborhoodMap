@@ -1,3 +1,4 @@
+'use strict';
 /*eslint-env node */
 //Udacity course on Web Tooling & Automation
 var gulp = require('gulp');

@@ -4,8 +4,9 @@ var YOUR_API_KEY = 'AIzaSyCbt1MzT95dG4Tg9C-wF8BPH48Lyio3gok&v=3&callback=initMap
     ajaxGeoCodeLatLng;
 
 $(document).ready(function() {
-    // Calling showListing() here cause the markers to load without user interaction and when the page is ready so that the buttons could have been removed .
+    // Calling showListing() here because the markers to load without user interaction and when the page is ready so that the buttons could have been removed .
     showListings();
+
 });
 
 /*
