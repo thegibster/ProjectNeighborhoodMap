@@ -1,6 +1,6 @@
 'use strict';
 /*eslint-env node */
-//Udacity course on Web Tooling & Automation
+//Udacity course on Web Tooling & Automation and modified for my project
 var gulp = require('gulp');
 var del = require('del');
 var inject = require('gulp-inject');
@@ -68,7 +68,7 @@ gulp.task('index', function() {
 // });
 
 gulp.task('scripts1', function() {
-    gulp.src(['js/lib/*.js','js/concat.js','js/js.js','js/findAdd.js','js/app.js','js/optionTrigger.js'])
+    gulp.src(['js/lib/*.js', 'js/concat.js', 'js/js.js', 'js/findAdd.js', 'js/app.js', 'js/optionTrigger.js'])
         .pipe(uglify())
         .pipe(concat('all.js'))
         .pipe(gulp.dest('dist/js'));
@@ -144,5 +144,3 @@ gulp.task('lint', function() {
 //       vendor: 'js/**/*.js'
 //     }));
 // });
-
-

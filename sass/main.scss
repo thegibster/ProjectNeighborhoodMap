@@ -8,19 +8,17 @@ body {
     height: 100%;
     margin: 0;
     padding: 0;
-        #map {
+    #map {
         // bottom:0px;
-         height: 100%;
+        height: 100%;
         // left: 362px;
         // position: absolute;
         // right: 0px;
-
-
-         overflow: hidden;
-         padding-bottom: 22.25%;
-         padding-top: 30px;
-         position: relative;
-      }
+        overflow: hidden;
+        padding-bottom: 22.25%;
+        padding-top: 30px;
+        position: relative;
+    }
 }
 .container {
     height: 100%;
@@ -65,61 +63,64 @@ input[type=text] {
     transition: width 0.4s ease-in-out;
 }
 /* When the input field gets focus, change its width to 100% */
+
 input[type=text]:focus {
     width: 100%;
 }
 //end of w3schools search animation
-select{
-      border:0px;
-      outline:0px;
+select {
+    border: 0px;
+    outline: 0px;
 }
-#yelp-review-container{
-  width:20%;
-  height:100px;
-  // overflow:hidden;
+#yelp-review-container {
+    width: 20%;
+    height: 100px;
+    // overflow:hidden;
 }
-
-.container-fluid{
-  height: 100%;
-  padding-right: 0px;
-  padding-left: 0px;
+.container-fluid {
+    height: 100%;
+    padding-right: 0px;
+    padding-left: 0px;
 }
 .col-md-8 {
     height: 100%;
-
 }
-
 .options-box {
-  border: 0px solid;
-  text-align: center;
-  width: auto;
+    border: 0px solid;
+    text-align: center;
+    width: auto;
 }
-
-
-.row{
-  height: 100%;
+.row {
+    height: 100%;
 }
-#dropme::-webkit-scrollbar {display:none;}
-#dropme::-moz-scrollbar {display:none;}
-#dropme::-o-scrollbar {display:none;}
-#dropme::-google-ms-scrollbar {display:none;}
-#dropme::-khtml-scrollbar {display:none;}
-
-.yummy{
-  width: 100px;
+#dropme::-webkit-scrollbar {
+    display: none;
 }
-
+#dropme::-moz-scrollbar {
+    display: none;
+}
+#dropme::-o-scrollbar {
+    display: none;
+}
+#dropme::-google-ms-scrollbar {
+    display: none;
+}
+#dropme::-khtml-scrollbar {
+    display: none;
+}
+.yummy {
+    width: 100px;
+}
 .input-group {
-  width: 90%;
-  margin: auto;
+    width: 90%;
+    margin: auto;
 }
-.form-control{
-  border: none;
+.form-control {
+    border: none;
 }
-.col-sm-10{
-  text-align: center;
+.col-sm-10 {
+    text-align: center;
 }
 .col-xs-10 {
     width: 100%;
 }
-

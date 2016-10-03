@@ -3,6 +3,7 @@
 var NeighborhoodList = function() {
     this.itemToAdd = ko.observable('');
     this.allItems = ko.observableArray(locationsArrayNames); // Initial items
+    // this.selectedItems = ko.observableArray(['Chelsea Loft']); // Initial selection
     this.selectedItems = ko.observableArray(['Chelsea Loft']); // Initial selection
     this.query = ko.observable('');
 
@@ -16,7 +17,7 @@ var NeighborhoodList = function() {
             applyFilter();
             return this.allItems();
         } else {
-        //Else the view will have a filtered list from which to draw from
+            //Else the view will have a filtered list from which to draw from
             applyFilter();
             filteredListing = ko.utils.arrayFilter(this.allItems(), function(item) {
                 return item.toLowerCase().indexOf(filter) !== -1;
