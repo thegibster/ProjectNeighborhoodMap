@@ -55,7 +55,7 @@ $ git clone https://github.com/thegibster/ProjectNeighborhoodMap
 
      followed by 
 
-     >$gulp scripts1
+     >$ gulp scripts1
 
 3. These two commands will concatenate and minify the javascript files into one file.
 
