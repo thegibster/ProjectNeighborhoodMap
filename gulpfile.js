@@ -29,7 +29,7 @@ gulp.task('default', ['clean', 'copy-html', /*'copy-images',*/ 'styles', /*'lint
 });
 
 gulp.task('watchFiles', function() {
-    gulp.watch('sass/**/*.scss', ['styles']);
+    gulp.watch('src/sass/**/*.scss', ['styles']);
     // gulp.watch(files.app_files.js, ['lint']);
     gulp.watch('./index.html', ['copy-html']);
     gulp.watch('files.dist_dir/index.html').on('change', browserSync.reload);
@@ -56,7 +56,7 @@ gulp.task('clean', function(callback) {
 gulp.task('index', function() {
     return gulp.src('./index.html')
         .pipe(inject(gulp.src(files.app_files.tpl_src), {
-            ignorePath: '../dist'
+            ignorePath: './dist'
         }))
         .pipe(gulp.dest(files.dist_dir));
 });
@@ -68,17 +68,17 @@ gulp.task('index', function() {
 // });
 
 gulp.task('scripts1', function() {
-    gulp.src(['js/lib/*.js', 'js/concat.js', 'js/js.js', 'js/findAdd.js', 'js/app.js', 'js/optionTrigger.js'])
+    gulp.src(['src/js/lib/*.js', 'src/js/concat.js', 'src/js/js.js', 'src/js/findAdd.js', 'src/js/app.js', 'src/js/optionTrigger.js'])
         .pipe(uglify())
         .pipe(concat('all.js'))
-        .pipe(gulp.dest('../dist/js'));
+        .pipe(gulp.dest('./dist/js'));
 });
 
 gulp.task('scripts-dist', function() {
-    gulp.src('js/**/*.js')
+    gulp.src('src/js/**/*.js')
         .pipe(concat('all.js'))
         .pipe(uglify())
-        .pipe(gulp.dest('../dist/js'));
+        .pipe(gulp.dest('./dist/js'));
 });
 
 gulp.task('js', function() {
@@ -96,7 +96,7 @@ gulp.task('js', function() {
     return merge(jquery, bootstrap, fontawesome)
         .pipe(buffer())
         .pipe(concat('concat.js'))
-        .pipe(gulp.dest('js'));
+        .pipe(gulp.dest('src/js'));
 });
 
 gulp.task('copy-html', function() {
@@ -122,7 +122,7 @@ gulp.task('styles', function() {
         .pipe(autoprefixer({
             browsers: ['last 2 versions']
         }))
-        .pipe(gulp.dest('../dist/css'))
+        .pipe(gulp.dest('./dist/css'))
         .pipe(browserSync.stream());
 });
 

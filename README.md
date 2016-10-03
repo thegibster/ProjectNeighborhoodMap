@@ -31,7 +31,7 @@ $ git clone https://github.com/thegibster/ProjectNeighborhoodMap
 
 2. To run on local server use the terminal to enter the project directory and run:
        
-     >$ node server or $ npm start
+     >$ node server 
 
     to start the local server on default port localhost 3000.
 
@@ -49,7 +49,13 @@ $ git clone https://github.com/thegibster/ProjectNeighborhoodMap
 
 ### Build Tools
 1. Gulp(gulpfile.js) is used to watch the index.html file in src and pipe any changes into the index.html in the dist folder.
-2. When changes are made the javascript files, from within the src folder of the project;run:
+2. Running
+    
+    >$ gulp serve
+
+    will serve uo the watch file function where changes to index.html are watched and updated.
+
+3. When changes are made the javascript files, from within the src folder of the project;run:
 
      >$ gulp js
 
@@ -57,7 +63,7 @@ $ git clone https://github.com/thegibster/ProjectNeighborhoodMap
 
      >$ gulp scripts1
 
-3. These two commands will concatenate and minify the javascript files into one file.
+4. These two commands will concatenate and minify the javascript files into one file.
 
 ### Accreditation
 1. Google Maps API was utilized.
