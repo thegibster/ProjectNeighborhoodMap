@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Neighborhood Map</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/main.css">
+
+    <!--     <script src="js/lib/knockout-3.2.0.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script src="https://use.fontawesome.com/498aa34772.js"></script>
+    <script src="js/js.js" async=true></script>
+    <script src="js/findAdd.js" async=true></script> -->
+</head>
+
+<body>
+
+    <div class="container-fluid">
+        <!-- <div><p>Your Neighborhood:</p></div> -->
+        <div class="row">
+
+            <div id="liberty" class="col-xs-10 col-sm-10 col-md-4">
+                <form class="form-inline" id="submitted">
+                    <div class="form-group">
+                        <div class="input-group">
+                            <input type="text" class="form-control" name="search" placeholder="Filter.." data-bind="value: query, valueUpdate: 'keyup'" autocomplete="off">
+                            <!--  <div class="input-group-addon"><i class="fa fa-filter" aria-hidden="true"></i></div> -->
+                        </div>
+                    </div>
+                </form>
+
+                <div class="options-box">
+                    <div>
+                        <!-- <input id="show-listings" type="button" value="Show Listings"> -->
+                        <!-- <input id="hide-listings" type="button" value="Hide Listings"> -->
+                    </div>
+
+                    <div>
+                        <!-- <select id="dropme" multiple="multiple" height="7" data-bind="click: toggleBounce, options:search, selectedOptions:selectedItems"> </select> -->
+                        <!-- <select id="dropme" multiple="multiple" height="7" data-bind=" options:search, selectedOptions:selectedItems"> </select> -->
+                        <select multiple="true" data-bind="options:search, selectedOptions:selectedItems">
+
+                            <!-- <a href="javascript:google.maps.event.trigger(markers[index],'click');" class="button3">Location 1</a> -->
+                        </select>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="col-xs-12 col-sm-12 col-md-8 col-lg-12">
+                <div id="map"></div>
+            </div>
+
+        </div>
+        <!--End of row container  -->
+    </div>
+    <!--End of container fluid -->
+    <!--
+    <script src="js/app.js" async=true></script>
+    <script src="js/optionTrigger.js" async=true></script> -->
+    <script src="./js/all.js" async defer></script>
+
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCbt1MzT95dG4Tg9C-wF8BPH48Lyio3gok&v=3&callback=initMap"></script>
+
+
+</body>
+
+</html>
