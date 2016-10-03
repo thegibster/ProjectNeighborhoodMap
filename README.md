@@ -23,6 +23,23 @@ $ git clone https://github.com/thegibster/ProjectNeighborhoodMap
      "request-promise": "^4.1.1",
      "yelp": "^1.0.1"
 ```
+ ```
+ This project uses the npm package manager and has the following devDependencies :
+
+     "browser-sync": "^2.17.0",
+     "del": "^2.2.2",
+     "gulp": "^3.9.1",
+     "gulp-autoprefixer": "^3.1.1",
+     "gulp-buffer": "0.0.2",
+     "gulp-concat": "^2.6.0",
+     "gulp-eslint": "^3.0.1",
+     "gulp-inject": "^4.1.0",
+     "gulp-sass": "^2.3.2",
+     "gulp-uglify": "^2.0.0",
+     "merge2": "^1.0.2",
+     "request": "^2.75.0",
+     "vinyl-source-stream": "^1.1.0"
+```
 
 ## Up and Running the Project
 1. After forking the project ,cloning the project or downloading the zip(unzip) version of the project.

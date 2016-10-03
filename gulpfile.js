@@ -100,7 +100,7 @@ gulp.task('js', function() {
 });
 
 gulp.task('copy-html', function() {
-    gulp.src('./index.html')
+    gulp.src('src/index.html')
         .pipe(gulp.dest(files.dist_dir));
 });
 
@@ -115,7 +115,7 @@ gulp.task('copy-html', function() {
 // });
 
 gulp.task('styles', function() {
-    gulp.src('sass/**/*.scss')
+    gulp.src('src/sass/**/*.scss')
         .pipe(sass({
             outputStyle: 'compressed'
         }).on('error', sass.logError))
