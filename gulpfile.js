@@ -61,8 +61,15 @@ gulp.task('index', function() {
         .pipe(gulp.dest(files.dist_dir));
 });
 
-gulp.task('scripts', function() {
-    gulp.src('js/**/*.js')
+// gulp.task('scripts', function() {
+//     gulp.src('js/**/*.js')
+//         .pipe(concat('all.js'))
+//         .pipe(gulp.dest('dist/js'));
+// });
+
+gulp.task('scripts1', function() {
+    gulp.src(['js/lib/*.js','js/concat.js','js/js.js','js/findAdd.js','js/app.js','js/optionTrigger.js'])
+        .pipe(uglify())
         .pipe(concat('all.js'))
         .pipe(gulp.dest('dist/js'));
 });
@@ -72,6 +79,22 @@ gulp.task('scripts-dist', function() {
         .pipe(concat('all.js'))
         .pipe(uglify())
         .pipe(gulp.dest('dist/js'));
+});
+
+gulp.task('js', function() {
+
+    var jquery = request(files.jquery)
+        .pipe(source('jquery.js'));
+    var bootstrap = request(files.bootstrap)
+        .pipe(source('bootstrap.js'));
+    var fontawesome = request(files.fontawesome)
+        .pipe(source('fontawesome.js'));
+    var main = gulp.src('main.js');
+
+    return merge(jquery, bootstrap, fontawesome, main)
+        .pipe(buffer())
+        .pipe(concat('concat.js'))
+        .pipe(gulp.dest('js'));
 });
 
 gulp.task('copy-html', function() {
@@ -122,18 +145,4 @@ gulp.task('lint', function() {
 //     }));
 // });
 
-gulp.task('js', function() {
 
-    var jquery = request(files.jquery)
-        .pipe(source('jquery.js'));
-    var bootstrap = request(files.bootstrap)
-        .pipe(source('bootstrap.js'));
-    var fontawesome = request(files.fontawesome)
-        .pipe(source('fontawesome.js'));
-    var main = gulp.src('main.js');
-
-    return merge(jquery, bootstrap, fontawesome, main)
-        .pipe(buffer())
-        .pipe(concat('concat.js'))
-        .pipe(gulp.dest('js'));
-});
