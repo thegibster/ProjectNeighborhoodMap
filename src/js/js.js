@@ -218,15 +218,10 @@ function getLat(title) {
 }
 
 function getLng(title) {
-        for (var y in locations) {
-            if (locations[y].title == title) {
-                // console.log("success lng ",locations[y].location.lng.toString());
-                return locations[y].location.lng.toString();
-            }
+    for (var y in locations) {
+        if (locations[y].title == title) {
+            // console.log("success lng ",locations[y].location.lng.toString());
+            return locations[y].location.lng.toString();
         }
     }
-    // function getYelpReview(){
-    //   var review = new Promise(function(resolve,reject){resolve($.get('/yelping'))});
-    //   review.then(function(value){console.log("hello yo",JSON.parse(value).rating)});
-
-// }
+}
