@@ -46,12 +46,11 @@ $ git clone https://github.com/thegibster/ProjectNeighborhoodMap
 2. To load all package dependencies run: 
      >$ npm install
 
-2. To run on local server use the terminal to enter the project directory and run:
+2. To run on the local server from the terminal from within the ProjectNeighborhoodMap directory,and run:
        
-     >$ node server 
+     >$ node src/server 
 
-    to start the local server on default port localhost 3000.
-
+    this will start the  local server on default port localhost 3000.
 
 
 ### Services provided
@@ -61,16 +60,13 @@ $ git clone https://github.com/thegibster/ProjectNeighborhoodMap
 4. Clicking on a yelp review will open the review in a new tab.
 
 
-### Known bugs and Issues
-1. ListView of places names only populates once the search bar is used and the functions as desired, a fix to auto show the knockout view is pending.
-
 ### Build Tools
 1. Gulp(gulpfile.js) is used to watch the index.html file in src and pipe any changes into the index.html in the dist folder.
 2. Running
     
     >$ gulp serve
 
-    will serve uo the watch file function where changes to index.html are watched and updated.
+    will serve up the watch file function where changes to index.html are watched and updated.
 
 3. When changes are made the javascript files, from within the src folder of the project;run:
 
@@ -80,7 +76,7 @@ $ git clone https://github.com/thegibster/ProjectNeighborhoodMap
 
      >$ gulp scripts1
 
-4. These two commands will concatenate and minify the javascript files into one file.
+4. These two commands will concatenate and minify the javascript files into one file called all.js in dist/js.
 
 ### Accreditation
 1. Google Maps API was utilized.
