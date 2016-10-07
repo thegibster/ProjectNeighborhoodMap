@@ -18,9 +18,9 @@ var uglify = require('gulp-uglify');
 var buffer = require('gulp-buffer');
 
 gulp.task('default', ['clean', 'copy-html', /*'copy-images',*/ 'styles', /*'lint',*/ 'js','scripts1'], function() {
-    gulp.watch('sass/**/*.scss', ['styles']);
-    gulp.watch(files.app_files.js, ['lint']);
-    gulp.watch('/index.html', ['copy-html']);
+    gulp.watch('src/sass/**/*.scss', ['styles']);
+    // gulp.watch(files.app_files.js, ['lint']);
+    gulp.watch('src/index.html', ['copy-html']);
     gulp.watch('files.dist_dir/index.html').on('change', browserSync.reload);
 
     browserSync.init({
@@ -31,7 +31,7 @@ gulp.task('default', ['clean', 'copy-html', /*'copy-images',*/ 'styles', /*'lint
 gulp.task('watchFiles', function() {
     gulp.watch('src/sass/**/*.scss', ['styles']);
     // gulp.watch(files.app_files.js, ['lint']);
-    gulp.watch('./index.html', ['copy-html']);
+    gulp.watch('src/index.html', ['copy-html']);
     gulp.watch('files.dist_dir/index.html').on('change', browserSync.reload);
 });
 

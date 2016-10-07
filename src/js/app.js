@@ -42,5 +42,3 @@ function applyFilter() {
     }
 
 };
-
-ko.applyBindings(new NeighborhoodList());
