@@ -209,7 +209,7 @@ document.getElementById('submitted').addEventListener('submit', function(event) 
 });
 
 function getLat(title) {
-    for (var y in locations) {
+    for (var y = 0; y < locations.length; y++) {
         if (locations[y].title == title) {
             // console.log("success lat ", locations[y].location.lat.toString());
             return locations[y].location.lat.toString();
@@ -218,9 +218,9 @@ function getLat(title) {
 }
 
 function getLng(title) {
-    for (var y in locations) {
+    for (var y = 0; y < locations.length; y++) {
         if (locations[y].title == title) {
-            // console.log("success lng ",locations[y].location.lng.toString());
+            // console.log("success lat ", locations[y].location.lat.toString());
             return locations[y].location.lng.toString();
         }
     }
