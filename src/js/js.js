@@ -90,12 +90,14 @@ function initMap() {
                 populateInfoWindow(this, largeInfowindow);
                 this.setIcon('http://maps.google.com/mapfiles/ms/icons/green-dot.png');
             });
-            marker.addListener('mouseout', function() {
-                this.setIcon('http://maps.google.com/mapfiles/ms/icons/blue-dot.png');
-            });
             marker.addListener('click', toggleBounce);
             //Attempt to modify infowindow from a later function call yelp
             // marker.addEventListener()
+            google.maps.event.addListener(largeInfowindow, 'closeclick', function() {
+                // stop marker animation here
+                console.log("closeclick testing");
+                this.marker.setIcon('http://maps.google.com/mapfiles/ms/icons/red-dot.png');
+            });
         }
     })();
     var bounds = new google.maps.LatLngBounds();

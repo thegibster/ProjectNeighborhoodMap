@@ -27,7 +27,7 @@ gulp.task('default', ['clean', 'copy-html', 'styles', 'js', 'scripts1'], functio
 gulp.task('watchFiles', function() {
     gulp.watch('src/sass/**/*.scss', ['styles']);
     gulp.watch('src/index.html', ['copy-html']);
-    gulp.watch('src/*.js', ['scripts1']);
+    gulp.watch('src/**/*.js', ['scripts1']);
     gulp.watch('files.dist_dir/index.html').on('change', browserSync.reload);
 });
 
