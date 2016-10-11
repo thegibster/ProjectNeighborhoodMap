@@ -98,6 +98,12 @@ function initMap() {
             // marker.addEventListener()
         }
     })();
+    var bounds = new google.maps.LatLngBounds();
+    for (var i = 0; i < markers.length; i++) {
+        markers[i].setMap(map);
+        bounds.extend(markers[i].position);
+    }
+    map.fitBounds(bounds);
     // document.getElementById('show-listings').addEventListener('click', showListings);
     // document.getElementById('hide-listings').addEventListener('click', hideListings);
     //Apply the bindings after the asynchronous Google Map loads and issues the callback to the initMap funciton
@@ -185,17 +191,6 @@ function populateInfoWindow(marker, infowindow) {
             venueJson = null;
         });
     }
-}
-
-// This function will loop through the markers array and display them all.
-function showListings() {
-    var bounds = new google.maps.LatLngBounds();
-    // Extend the boundaries of the map for each marker and display the marker
-    for (var i = 0; i < markers.length; i++) {
-        markers[i].setMap(map);
-        bounds.extend(markers[i].position);
-    }
-    map.fitBounds(bounds);
 }
 
 // This function will loop through the listings and hide them all.
