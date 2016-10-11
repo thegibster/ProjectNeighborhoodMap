@@ -1,8 +1,10 @@
 $font-stack: Helvetica,
+
 sans-serif;
+
 $primary-color: #333;
-html,
-body {
+
+html,body {
     font: 100% $font-stack;
     color: $primary-color;
     height: 100%;
@@ -20,23 +22,28 @@ body {
         position: relative;
     }
 }
+
 .container {
     height: 100%;
     position: relative;
 }
+
 input {
     font-size: 12px;
 }
+
 h1 {
     color: #525454;
     font-size: 22px;
     margin: 0 0 10px 0;
     text-align: center;
 }
+
 #hide-listings,
 #show-listings {
     width: 48%;
 }
+
 .options-box {
     background: #fff;
     border: 1px solid #999;
@@ -47,6 +54,7 @@ h1 {
     text-align: left;
     width: 340px;
 }
+
 // w3schools search animations
 input[type=text] {
     width: 130px;
@@ -62,65 +70,82 @@ input[type=text] {
     -webkit-transition: width 0.4s ease-in-out;
     transition: width 0.4s ease-in-out;
 }
+
 /* When the input field gets focus, change its width to 100% */
 
 input[type=text]:focus {
     width: 100%;
 }
+
 //end of w3schools search animation
 select {
     border: 0px;
     outline: 0px;
 }
+
 #yelp-review-container {
     width: 20%;
     height: 100px;
     // overflow:hidden;
 }
+
 .container-fluid {
     height: 100%;
     padding-right: 0px;
     padding-left: 0px;
 }
+
 .col-md-8 {
     height: 100%;
 }
+
 .options-box {
     border: 0px solid;
     text-align: center;
     width: auto;
 }
+
 .row {
     height: 100%;
 }
+
 #dropme::-webkit-scrollbar {
     display: none;
 }
+
 #dropme::-moz-scrollbar {
     display: none;
 }
+
 #dropme::-o-scrollbar {
     display: none;
 }
+
 #dropme::-google-ms-scrollbar {
     display: none;
 }
+
 #dropme::-khtml-scrollbar {
     display: none;
 }
+
 .yummy {
     width: 100px;
 }
+
 .input-group {
     width: 90%;
     margin: auto;
 }
+
 .form-control {
     border: none;
 }
+
 .col-sm-10 {
     text-align: center;
 }
+
 .col-xs-10 {
     width: 100%;
 }
