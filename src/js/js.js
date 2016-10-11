@@ -104,6 +104,11 @@ function initMap() {
         bounds.extend(markers[i].position);
     }
     map.fitBounds(bounds);
+
+    window.onresize = function() {
+      map.fitBounds(bounds); // `bounds` is a `LatLngBounds` object
+      console.log("resized");
+    }
     // document.getElementById('show-listings').addEventListener('click', showListings);
     // document.getElementById('hide-listings').addEventListener('click', hideListings);
     //Apply the bindings after the asynchronous Google Map loads and issues the callback to the initMap funciton
