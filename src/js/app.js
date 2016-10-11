@@ -34,10 +34,10 @@ var NeighborhoodList = function() {
 function applyFilter() {
     for (var y in markers) {
         if (filteredListing.indexOf(markers[y].title) < 0) {
-            markers[y].setMap(null);
+            markers[y].setVisible(false);;
             console.log(markers[y].title);
         } else {
-            markers[y].setMap(map);
+            markers[y].setVisible(true);;
         }
     }
 
