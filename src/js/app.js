@@ -40,5 +40,4 @@ function applyFilter() {
             markers[y].setVisible(true);;
         }
     }
-
 };

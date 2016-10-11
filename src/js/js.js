@@ -179,6 +179,8 @@ function populateInfoWindow(marker, infowindow) {
             // Resize the drop down list dynamically
             var selectDrop = $("#dropme");
             selectDrop.size = selectDrop.length;
+        }).catch(function(err){
+          infowindow.setContent('<div id="yelp-review-container">' + "Error Loading Content!" + '</div>');
         });
         // infowindow.setContent(
         //   //Should use the lat long here to  call the route to populate an iframe

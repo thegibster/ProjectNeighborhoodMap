@@ -1,19 +1,18 @@
 'use strict';
-/*eslint-env node */
 //Udacity course on Web Tooling & Automation and modified for my project
-var gulp = require('gulp');
-var del = require('del');
-var inject = require('gulp-inject');
-var source = require('vinyl-source-stream');
-var request = require('request');
-var merge = require('merge2');
-var files = require('./gulp/gulp.config.js');
-var sass = require('gulp-sass');
-var autoprefixer = require('gulp-autoprefixer');
-var browserSync = require('browser-sync').create();
-var concat = require('gulp-concat');
-var uglify = require('gulp-uglify');
-var buffer = require('gulp-buffer');
+var gulp = require('gulp'),
+    del = require('del'),
+    inject = require('gulp-inject'),
+    source = require('vinyl-source-stream'),
+    request = require('request'),
+    merge = require('merge2'),
+    files = require('./gulp/gulp.config.js'),
+    sass = require('gulp-sass'),
+    autoprefixer = require('gulp-autoprefixer'),
+    browserSync = require('browser-sync').create(),
+    concat = require('gulp-concat'),
+    uglify = require('gulp-uglify'),
+    buffer = require('gulp-buffer');
 
 gulp.task('default', ['clean', 'copy-html', 'styles', 'js', 'scripts1'], function() {
     gulp.watch('src/sass/**/*.scss', ['styles']);
@@ -28,6 +27,7 @@ gulp.task('default', ['clean', 'copy-html', 'styles', 'js', 'scripts1'], functio
 gulp.task('watchFiles', function() {
     gulp.watch('src/sass/**/*.scss', ['styles']);
     gulp.watch('src/index.html', ['copy-html']);
+    gulp.watch('src/**/*.js', ['scripts1']);
     gulp.watch('files.dist_dir/index.html').on('change', browserSync.reload);
 });
 

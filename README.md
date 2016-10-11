@@ -61,22 +61,14 @@ $ git clone https://github.com/thegibster/ProjectNeighborhoodMap
 
 
 ### Build Tools
-1. Gulp(gulpfile.js) is used to watch the index.html file in src and pipe any changes into the index.html in the dist folder.
+1. Gulp(gulpfile.js) is used to watch the index.html, scss and javascript files in src and pipe any changes into the index.html in the dist folder.
 2. Running
     
     >$ gulp serve
 
-    will serve up the watch file function where changes to index.html are watched and updated.
+    will serve up the watch function where changes to index.html, scss and javascript files are watched and updated.
 
-3. When changes are made the javascript files, from within the src folder of the project;run:
-
-     >$ gulp js
-
-     followed by 
-
-     >$ gulp scripts1
-
-4. These two commands will concatenate and minify the javascript files into one file called all.js in dist/js.
+3. This command will concatenate and minify the javascript files into one file called all.js in dist/js.
 
 ### Accreditation
 1. Google Maps API was utilized.

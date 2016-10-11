@@ -4,6 +4,7 @@ index.html
 gulpfile
 findadd.js
 *maybe the imte it take to update the list in the iframe*
+promise error handling
 
 done:
 click event add to list drop down and also works when filtered.
