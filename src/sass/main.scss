@@ -154,3 +154,9 @@ select {
 main {
   height: 100%
 }
+
+ul {
+  height: 4em;
+  overflow: auto;
+  list-style: none;
+}

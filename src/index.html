@@ -41,10 +41,14 @@
                     <div>
                         <!-- <select id="dropme" multiple="multiple" height="7" data-bind="click: toggleBounce, options:search, selectedOptions:selectedItems"> </select> -->
                         <!-- <select id="dropme" multiple="multiple" height="7" data-bind=" options:search, selectedOptions:selectedItems"> </select> -->
-                        <select multiple="true" data-bind="options:search, selectedOptions:selectedItems">
+       <!--                  <select multiple="true" data-bind="options:search, selectedOptions:selectedItems">
 
-                            <!-- <a href="javascript:google.maps.event.trigger(markers[index],'click');" class="button3">Location 1</a> -->
-                        </select>
+                            <a href="javascript:google.maps.event.trigger(markers[index],'click');" class="button3">Location 1</a>
+                        </select> -->
+
+                        <ul  data-bind="foreach: search">
+                            <li value="" data-bind="text: $data"></li>
+                        </ul>
                     </div>
                 </div>
 
