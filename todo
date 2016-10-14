@@ -1,10 +1,10 @@
 todo:
 src/js/js.js
 index.html
-gulpfile
-findadd.js
+
+
 *maybe the imte it take to update the list in the iframe*
-promise error handling
+
 
 explain that the lat and lng get passed to the get route when clicked and is location based
 
@@ -13,3 +13,6 @@ click event add to list drop down and also works when filtered.
 bootstrap the responsiveness to prevent yelp ifram from going off screen
 add map action to select list
 add click event to the dynamic yelp reviews
+promise error handling
+gulpfile
+findadd.js deleted

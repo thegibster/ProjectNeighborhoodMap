@@ -89,6 +89,12 @@ function initMap() {
             marker.addListener('click', function() {
                 populateInfoWindow(this, largeInfowindow);
                 this.setIcon('http://maps.google.com/mapfiles/ms/icons/green-dot.png');
+                for(var y = 0; y<markers.length; y++){
+                  //If the marker is not the current one, then set it to red.
+                  if(markers[y] != this){
+                    markers[y].setIcon('http://maps.google.com/mapfiles/ms/icons/red-dot.png');
+                  }
+                }
             });
             marker.addListener('click', toggleBounce);
             google.maps.event.addListener(largeInfowindow, 'closeclick', function() {
