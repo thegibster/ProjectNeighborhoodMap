@@ -91,8 +91,6 @@ function initMap() {
                 this.setIcon('http://maps.google.com/mapfiles/ms/icons/green-dot.png');
             });
             marker.addListener('click', toggleBounce);
-            //Attempt to modify infowindow from a later function call yelp
-            // marker.addEventListener()
             google.maps.event.addListener(largeInfowindow, 'closeclick', function() {
                 // stop marker animation here
                 console.log("closeclick testing");
@@ -182,7 +180,8 @@ function populateInfoWindow(marker, infowindow) {
             var selectDrop = $("#dropme");
             selectDrop.size = selectDrop.length;
         }).catch(function(err){
-          infowindow.setContent('<div id="yelp-review-container">' + "Error Loading Content!" + '</div>');
+          infowindow.setContent('<div id="yelp-review-container">' + '<div class="yummy">' +
+            "Error Loading Yelp Review Content! Please check network connection." + '</div>'+ '</div>');
         });
         // infowindow.setContent(
         //   //Should use the lat long here to  call the route to populate an iframe
