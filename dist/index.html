@@ -47,7 +47,7 @@
                         </select> -->
 
                         <ul  data-bind="foreach: search">
-                            <li value="" data-bind="text: $data"></li>
+                            <li value="" data-bind="text: $data ,click: function(){mapClick($index())}"></li>
                         </ul>
                     </div>
                 </div>

@@ -29,6 +29,8 @@ var NeighborhoodList = function() {
 
         applyFilter();
     }, this);
+
+
 };
 //applyFilter runs everytime a keyup event happens and goes through a viewlist to see if a markers matches by name and if not it is set to null and out of the view.
 function applyFilter() {
@@ -40,4 +42,10 @@ function applyFilter() {
             markers[y].setVisible(true);;
         }
     }
+};
+
+function mapClick (mark) {
+      // self.places.remove(place)
+      console.log("it is mapClick"+ mark);
+      google.maps.event.trigger(markers[mark],'click');
 };
