@@ -12,6 +12,8 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
     <link rel="stylesheet" href="css/main.css">
 
+    <link rel="shortcut icon" type="image/png" href="img/bowhat.png">
+
 </head>
 
 <body>
@@ -47,18 +49,24 @@
                 </div>
 
             </div>
-
+<main>
             <div class="col-xs-12 col-sm-12 col-md-8 col-lg-12">
                 <div id="map"></div>
             </div>
-
+</main>
         </div>
         <!--End of row container  -->
     </div>
     <!--End of container fluid -->
 
     <script src="./js/all.js"></script>
-    //Loading Google Maps asynchronously
-    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCbt1MzT95dG4Tg9C-wF8BPH48Lyio3gok&v=3&callback=initMap"></script>
+    <script type="text/javascript">
+        function mapsErrorHandle () {
+            $("#map").css("text-align","center");
+            $("#map").append("<img id='failure' src='img/mapfail.jpg'/>");
+        }
+    </script>
+    <!-- Loading Google Maps asynchronously -->
+    <script async defer onerror="mapsErrorHandle()" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCbt1MzT95dG4Tg9C-wF8BPH48Lyio3gok&v=3&callback=initMap"></script>
 </body>
 </html>

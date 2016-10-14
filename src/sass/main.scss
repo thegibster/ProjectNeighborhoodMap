@@ -93,6 +93,7 @@ select {
     height: 100%;
     padding-right: 0px;
     padding-left: 0px;
+    overflow: hidden;
 }
 
 .col-md-8 {
@@ -148,4 +149,8 @@ select {
 
 .col-xs-10 {
     width: 100%;
+}
+
+main {
+  height: 100%
 }

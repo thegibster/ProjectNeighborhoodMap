@@ -160,21 +160,6 @@ function populateInfoWindow(marker, infowindow) {
             infowindow.setContent(
                 //Should use the lat long here to  call the route to populate an iframe
                 '<div id="yelp-review-container">' + populatePlacesArray + '</div>'
-                // '<div>' + venueJson.name
-                //   +'</div>'+
-                //  '<div><img src ='+venueJson.image_url+'></>'
-                //  +'</div> '+
-                //   '<div><img src ='+venueJson.rating_img_url+'></>'+'</div>'
-
-                // '<div>' + marker.title +' '+ getLat(marker.title)+' '+ getLng(marker.title)+'</div>' +
-                // '<button id="yelpButton" onclick="getYelpReview()">'+'Yelp Me'+'</button>' +
-                //  '<h1>'+
-                // venueJson.rating
-                //  +'</h1>'
-
-                // '<iframe src='+venueJson.mobile_url+'>'+
-                //   '<p>Your browser does not support iframes.</p>'+
-                // '</iframe>'
             );
             // Resize the drop down list dynamically
             var selectDrop = $("#dropme");
@@ -183,14 +168,7 @@ function populateInfoWindow(marker, infowindow) {
           infowindow.setContent('<div id="yelp-review-container">' + '<div class="yummy">' +
             "Error Loading Yelp Review Content! Please check network connection." + '</div>'+ '</div>');
         });
-        // infowindow.setContent(
-        //   //Should use the lat long here to  call the route to populate an iframe
 
-        //   // '<div>' + marker.title +' '+ getLat(marker.title)+' '+ getLng(marker.title)+'</div>' +
-        //   // '<button id="yelpButton" onclick="getYelpReview()">'+'Yelp Me'+'</button>' +'<h1>'+
-        //   // getYelpReview()
-        //   // +'</h1>'
-        //   );
         infowindow.open(map, marker);
         // Make sure the marker property is cleared if the infowindow is closed.
         infowindow.addListener('closeclick', function() {
