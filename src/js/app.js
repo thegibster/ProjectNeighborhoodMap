@@ -46,6 +46,8 @@ function applyFilter() {
 
 function mapClick (mark) {
       // self.places.remove(place)
-      console.log("it is mapClick"+ mark);
+      console.log("it is mapClick "+ mark);
       google.maps.event.trigger(markers[mark],'click');
+      $('li').removeClass('selected');
+      $('li:nth-child('+(mark+1)+')').addClass('selected');
 };

@@ -160,3 +160,7 @@ ul {
   overflow: auto;
   list-style: none;
 }
+
+li.cityPlace.selected {
+  background-color: grey;
+}

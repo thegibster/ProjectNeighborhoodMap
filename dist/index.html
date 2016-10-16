@@ -33,31 +33,20 @@
                 </form>
 
                 <div class="options-box">
-                    <div>
-                        <!-- <input id="show-listings" type="button" value="Show Listings"> -->
-                        <!-- <input id="hide-listings" type="button" value="Hide Listings"> -->
-                    </div>
 
                     <div>
-                        <!-- <select id="dropme" multiple="multiple" height="7" data-bind="click: toggleBounce, options:search, selectedOptions:selectedItems"> </select> -->
-                        <!-- <select id="dropme" multiple="multiple" height="7" data-bind=" options:search, selectedOptions:selectedItems"> </select> -->
-       <!--                  <select multiple="true" data-bind="options:search, selectedOptions:selectedItems">
-
-                            <a href="javascript:google.maps.event.trigger(markers[index],'click');" class="button3">Location 1</a>
-                        </select> -->
-
                         <ul  data-bind="foreach: search">
-                            <li value="" data-bind="text: $data ,click: function(){mapClick($index())}"></li>
+                            <li class ="cityPlace" value="" data-bind="text: $data ,click: function(){mapClick($index())}"></li>
                         </ul>
                     </div>
                 </div>
 
             </div>
-<main>
-            <div class="col-xs-12 col-sm-12 col-md-8 col-lg-12">
-                <div id="map"></div>
-            </div>
-</main>
+            <main>
+                <div class="col-xs-12 col-sm-12 col-md-8 col-lg-12">
+                    <div id="map"></div>
+                </div>
+            </main>
         </div>
         <!--End of row container  -->
     </div>
