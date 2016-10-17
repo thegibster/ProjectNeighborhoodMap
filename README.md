@@ -54,7 +54,7 @@ $ git clone https://github.com/thegibster/ProjectNeighborhoodMap
 
 
 ### Services provided
-1. From a predifined list of locations the user may filter locations in real-time and have the list view change by filter parameter as well as the visable map markers.
+1. From a predefined list of locations the user may filter locations in real-time and have the list view change by filter parameter as well as the visable map markers.
 2. Clicking on a marker causes the marker to bounce as well as change color and open an info window. 
 3. The info window is populated with yelp reviews of the top five restaurants based on the lat/lng of the markers location.
 4. Clicking on a yelp review will open the review in a new tab.

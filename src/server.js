@@ -19,7 +19,6 @@ app.use('/yelping', yelpRouter);
 
 app.use(express.static(__dirname + '/../dist'));
 
-
 app.listen(port, hostname, function() {
     console.log(`Server running at http://${hostname}:${port}/`); //ES6 backtick notation
 });

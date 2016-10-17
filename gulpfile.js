@@ -56,7 +56,7 @@ gulp.task('index', function() {
 
 
 gulp.task('scripts1', function() {
-    gulp.src(['src/js/lib/*.js', 'src/js/concat.js', 'src/js/js.js','src/js/app.js', 'src/js/optionTrigger.js'])
+    gulp.src(['src/js/lib/*.js', 'src/js/concat.js', 'src/js/js.js','src/js/app.js'])
         .pipe(uglify())
         .pipe(concat('all.js'))
         .pipe(gulp.dest('./dist/js'));

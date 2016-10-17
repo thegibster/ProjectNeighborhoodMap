@@ -1,6 +1,5 @@
 'use strict';
 var map;
-
 // Create a new blank array for all the listing markers.
 var markers = [];
 var locations;
@@ -61,9 +60,7 @@ function initMap() {
             lng: -73.9961237
         }
     }];
-
     //locationsArrayNames = locations.map(function(obj){return obj.title});
-
     var largeInfowindow = new google.maps.InfoWindow();
 
     // The following group uses the location array to create an array of markers on initialize.
@@ -99,6 +96,7 @@ function initMap() {
             marker.addListener('click', toggleBounce);
             google.maps.event.addListener(largeInfowindow, 'closeclick', function() {
                 // stop marker animation here
+                $("#yelp-review-container").empty();
                 console.log("closeclick testing");
                 this.marker.setIcon('http://maps.google.com/mapfiles/ms/icons/red-dot.png');
             });
@@ -115,9 +113,7 @@ function initMap() {
       map.fitBounds(bounds); // `bounds` is a `LatLngBounds` object
       console.log("resized");
     }
-    // document.getElementById('show-listings').addEventListener('click', showListings);
-    // document.getElementById('hide-listings').addEventListener('click', hideListings);
-    //Apply the bindings after the asynchronous Google Map loads and issues the callback to the initMap funciton
+
     ko.applyBindings(new NeighborhoodList());
 }
 
@@ -132,12 +128,11 @@ function toggleBounce() {
         }, 1000);
     }
 }
-
-
 // This function populates the infowindow when the marker is clicked. We'll only allow
 // one infowindow which will open at the marker that is clicked, and populate based
 // on that markers position.
 function populateInfoWindow(marker, infowindow) {
+    $("#yelp-review-container").empty();
     // Check to make sure the infowindow is not already opened on this marker.
     if (infowindow.marker != marker) {
         infowindow.marker = marker;
@@ -155,7 +150,6 @@ function populateInfoWindow(marker, infowindow) {
         );
         review.then(function(value) {
             venueJson = JSON.parse(value);
-            console.log("hello yo", JSON.parse(value).length);
             // For each item up to the hard 5 limit , an item is generated with the yelp review
             var populatePlacesArray = venueJson.map(function(item) {
 

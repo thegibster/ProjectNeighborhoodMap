@@ -6,8 +6,6 @@ var NeighborhoodList = function() {
     // this.selectedItems = ko.observableArray(['Chelsea Loft']); // Initial selection
     this.selectedItems = ko.observableArray(['Chelsea Loft']); // Initial selection
     this.query = ko.observable('');
-
-
     this.search = ko.computed(function() {
         var filter = this.query().toLowerCase();
 
@@ -26,11 +24,8 @@ var NeighborhoodList = function() {
                 return item.toLowerCase().indexOf(filter) !== -1;
             });
         }
-
         applyFilter();
     }, this);
-
-
 };
 //applyFilter runs everytime a keyup event happens and goes through a viewlist to see if a markers matches by name and if not it is set to null and out of the view.
 function applyFilter() {
@@ -42,12 +37,12 @@ function applyFilter() {
             markers[y].setVisible(true);;
         }
     }
-};
+}
 
 function mapClick (mark) {
       // self.places.remove(place)
-      console.log("it is mapClick "+ mark);
+      // console.log("it is mapClick "+ mark);
       google.maps.event.trigger(markers[mark],'click');
       $('li').removeClass('selected');
       $('li:nth-child('+(mark+1)+')').addClass('selected');
-};
+}
