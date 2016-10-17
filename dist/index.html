@@ -53,8 +53,10 @@
     <script src="./js/all.js"></script>
     <script type="text/javascript">
         function mapsErrorHandle () {
-            $("#map").css("text-align","center");
-            $("#map").append("<img id='failure' src='img/mapfail.jpg'/>");
+            $("#liberty").remove();
+            $('div:eq(2)').removeClass('col-md-8').addClass('col-md-12');
+            $('#map').css({'padding-top':'0px', 'text-align':'center'})
+                .append('<img id="failure" class="img-responsive" src="img/mapfail.jpg"/>');
         }
     </script>
     <!-- Loading Google Maps asynchronously -->

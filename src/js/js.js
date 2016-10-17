@@ -96,7 +96,6 @@ function initMap() {
             marker.addListener('click', toggleBounce);
             google.maps.event.addListener(largeInfowindow, 'closeclick', function() {
                 // stop marker animation here
-                $("#yelp-review-container").empty();
                 console.log("closeclick testing");
                 this.marker.setIcon('http://maps.google.com/mapfiles/ms/icons/red-dot.png');
             });
@@ -132,7 +131,6 @@ function toggleBounce() {
 // one infowindow which will open at the marker that is clicked, and populate based
 // on that markers position.
 function populateInfoWindow(marker, infowindow) {
-    $("#yelp-review-container").empty();
     // Check to make sure the infowindow is not already opened on this marker.
     if (infowindow.marker != marker) {
         infowindow.marker = marker;

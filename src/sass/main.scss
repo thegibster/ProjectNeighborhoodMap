@@ -161,6 +161,11 @@ ul {
   list-style: none;
 }
 
+#failure {
+  margin: auto;
+  height: auto;
+}
+
 li.cityPlace.selected {
   background-color: grey;
 }

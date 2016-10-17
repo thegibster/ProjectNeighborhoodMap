@@ -31,7 +31,7 @@ var NeighborhoodList = function() {
 function applyFilter() {
     for (var y in markers) {
         if (filteredListing.indexOf(markers[y].title) < 0) {
-            markers[y].setVisible(false);;
+            markers[y].setVisible(false);
             console.log(markers[y].title);
         } else {
             markers[y].setVisible(true);;
@@ -46,3 +46,4 @@ function mapClick (mark) {
       $('li').removeClass('selected');
       $('li:nth-child('+(mark+1)+')').addClass('selected');
 }
+
