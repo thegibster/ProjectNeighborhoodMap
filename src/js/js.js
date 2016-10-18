@@ -150,10 +150,10 @@ function populateInfoWindow(marker, infowindow) {
             venueJson = JSON.parse(value);
             // For each item up to the hard 5 limit , an item is generated with the yelp review
             var populatePlacesArray = venueJson.map(function(item) {
-
-                return '<div class="yummy">' + '<div>' + item.name + '</div>' +
+                // $('.fa .fa-spinner .fa-spin .fa-3x .fa-fw');
+                return '<div class="yummy ">' + '<div>' + item.name + '</div>' +
                     '<div><a href=' + item.url + 'target="_blank" ><img src =' + item.image_url + '></></a>' + '</div> ' +
-                    '<div><img src =' + item.rating_img_url + '></>' + '</div>' + '</div'
+                    '<div><img src =' + item.rating_img_url + '></>' + '</div>' + '</div';
             });
             infowindow.setContent(
                 //Should use the lat long here to  call the route to populate an iframe

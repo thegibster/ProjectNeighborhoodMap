@@ -132,6 +132,7 @@ select {
 
 .yummy {
     width: 100px;
+    transform: rotateZ(360deg);
 }
 
 .input-group {
@@ -169,3 +170,4 @@ ul {
 li.cityPlace.selected {
   background-color: grey;
 }
+
