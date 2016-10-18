@@ -7,6 +7,11 @@ var NeighborhoodList = function() {
     this.selectedItems = ko.observableArray(['Chelsea Loft']); // Initial selection
     this.query = ko.observable('');
     this.search = ko.computed(function() {
+        largeInfowindow.close();
+        for(var y = 0; y<markers.length; y++){
+          //If the marker is not the current one, then set it to red.
+            markers[y].setIcon('http://maps.google.com/mapfiles/ms/icons/red-dot.png');
+        }
         var filter = this.query().toLowerCase();
 
         //If there is no typing happening in the search box then the list is shown in the current search match

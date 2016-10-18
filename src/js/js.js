@@ -9,6 +9,7 @@ var review;
 var venueJson;
 // var locationsArrayNames =['Park Ave Penthouse', 'Chelsea Loft', 'Union Square Open Floor Plan', 'East Village Hip Studio', 'TriBeCa Artsy Bachelor Pad', 'Chinatown Homey Space'];
 var locationsArrayNames = [];
+var largeInfowindow;
 
 function initMap() {
     // Constructor creates a new map - only center and zoom are required. From Google Maps Api course in this lesson
@@ -61,7 +62,7 @@ function initMap() {
         }
     }];
     //locationsArrayNames = locations.map(function(obj){return obj.title});
-    var largeInfowindow = new google.maps.InfoWindow();
+    largeInfowindow = new google.maps.InfoWindow();
 
     // The following group uses the location array to create an array of markers on initialize.
     (function runMap() {
@@ -138,14 +139,11 @@ function populateInfoWindow(marker, infowindow) {
         /* review is the result of an ajax call to the back-end route passing the lat/lng as parameters
            after it has resolved the parsed JSON value is passed to venueJson
         */
-        review = new Promise(
-            function(resolve, reject) {
-                resolve($.get('/yelping', {
+        review = $.get('/yelping', {
                     lat: getLat(marker.title),
                     lng: getLng(marker.title)
-                }))
-            }
-        );
+                  });
+
         review.then(function(value) {
             venueJson = JSON.parse(value);
             // For each item up to the hard 5 limit , an item is generated with the yelp review
